@@ -34,30 +34,19 @@
 
     <!-- Scene and character templates -->
     <template id="scene-lobby">
-        <div class="lobby lobby-image"><img src="images/lift-lobby-background.svg" alt="Lift lobby background"></div>
+        <div class="lobby lobby-image"><img src="images/lift-lobby-background.png" width="1440" height="800" alt="Lift lobby background"></div>
     </template>
     <template id="scene-inside">
-        <div class="inside lift-inside"><img src="images/lift-inside-background.png" alt="Lift Inside background"></div>
+        <div class="inside lift-inside"><img src="images/lift-inside-background.png" width="1440" height="800" alt="Lift Inside background"></div>
     </template>
     <template id="character-1">
-        <div class="char left asset-char"><img src="images/character-1.svg" alt="Character 1"></div>
+        <div class="char left asset-char"><img src="images/character-1.png" width="204" height="402" alt="Character 1"></div>
     </template>
     <template id="character-2">
-        <div class="char right"><svg viewBox="0 0 220 360" xmlns="http://www.w3.org/2000/svg">
-                <ellipse cx="110" cy="345" rx="58" ry="10" fill="#021216" />
-                <path d="M67 160q44-35 88 0l25 158H40z" fill="#e7c8a8" />
-                <path d="M76 180h68v140H76z" fill="#181c22" />
-                <circle cx="110" cy="84" r="47" fill="#c78e67" />
-                <path d="M62 90Q55 27 112 25q55 9 48 76-23-28-98-11z" fill="#242126" />
-                <path d="M70 92q7 51 40 65 33-14 40-67-44 10-80 2z" fill="#c78e67" />
-                <circle cx="94" cy="88" r="4" />
-                <circle cx="127" cy="88" r="4" />
-                <path d="M99 111q10 5 22 0" stroke="#733b31" stroke-width="3" fill="none" />
-                <path d="M65 185l-32 64 17 9 40-54M155 185l32 64-17 9-40-54" fill="#c78e67" />
-                <path d="M65 146l45 26 45-26" fill="none" stroke="#d7b089" stroke-width="5" />
-            </svg></div>
+        <div class="char right"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
     </template>
-    <template id="coin"><span class="coin">●</span></template>
+    <template id="coin"><img class="coin" src="images/coin.png" width="19" height="19" alt=""></template>
+    <template id="timer-icon"><img class="timer-icon" src="images/timer.png" width="18" height="18" alt=""></template>
     <div hidden id="bubble-data">
         <template data-screen="2">
             <div class="bubble left round">You are the founder of a new skincare brand.
@@ -142,12 +131,12 @@
             <div class="title">Your Mission</div>
             <div class="copy">You meet Riya in the elevator at 0 floor.<br>She needs to go to the 3rd floor.</div>
             <div class="mission">Impress Riya and secure an investment from her before her floor arrives.</div>
-            <div class="timer">⌛ Time: 30 seconds</div><button class="go" data-next="5">Next</button>
+            <div class="timer"><img class="timer-icon" src="images/timer.png" alt=""> Time: 30 seconds</div><button class="go" data-next="5">Next</button>
         </template>
         <template data-screen="5">
             <div class="title">Grab Riya's attention.</div>
             <div class="copy">What makes your skincare brand worth buying?</div>
-            <div class="mission">⌛ Loading...</div><button class="go" data-next="6"
+            <div class="mission"><img class="timer-icon" src="images/timer.png" alt=""> Loading...</div><button class="go" data-next="6"
                 data-start-timer="30">Continue</button>
         </template>
         <template data-screen="6">
@@ -170,7 +159,7 @@
         </template><template data-screen="9">
             <div class="title">You picked the right answer, Good job!</div>
             <div class="copy">You have her attention now.</div>
-            <div class="timer">⌛ 60 seconds will start</div><button class="go" data-next="10"
+            <div class="timer"><img class="timer-icon" src="images/timer.png" alt=""> 60 seconds will start</div><button class="go" data-next="10"
                 data-start-timer="60">GO</button>
         </template><template data-screen="10">
             <div class="title">Keep the conversation going.</div>
@@ -221,7 +210,7 @@
                             style="position:absolute;top:24px;left:1px;font-size:6px;color:#222">SKINNS</span></div>
                 </div>
             </div>
-            <div class="copy">Need 20 Coins to get this <span class="coin">●</span><span data-money="20">20</span></div>
+            <div class="copy">Need 20 Coins to get this <img class="coin" src="images/coin.png" alt=""><span data-money="20">20</span></div>
             <button class="go" data-action="buyPack">Next</button>
         </template><template data-screen="15">
             <div class="title">Uh-oh...You don't have coins.</div>
@@ -233,7 +222,7 @@
         </template><template data-screen="16">
             <div class="title">Congratulations!</div>
             <div class="copy">You've claimed 100 coins.</div>
-            <div class="mission"><span class="coin">●</span><span data-money="100">100</span></div><button class="go"
+            <div class="mission"><img class="coin" src="images/coin.png" alt=""><span data-money="100">100</span></div><button class="go"
                 data-next="17">Continue</button>
         </template>
         <template data-screen="17">
@@ -281,7 +270,7 @@
                         </div>
                     </div>
                     <div class="choice-title">Show as it is</div>
-                    <div><span class="coin">●</span><span data-money="20">20</span></div>
+                    <div><img class="coin" src="images/coin.png" alt=""><span data-money="20">20</span></div>
                 </button><button class="choice" data-choice="1">
                     <div class="mock">
                         <div class="phone new">
@@ -293,7 +282,7 @@
                         </div>
                     </div>
                     <div class="choice-title">Show new design</div>
-                    <div><span class="coin">●</span><span data-money="30">30</span></div>
+                    <div><img class="coin" src="images/coin.png" alt=""><span data-money="30">30</span></div>
                 </button></div><button class="go" data-action="brandChoice">Next</button>
         </template>
         <template data-screen="21" data-choice="0">
@@ -338,7 +327,7 @@
                         </div>
                     </div>
                     <div class="choice-title">Show website</div>
-                    <div><span class="coin">●</span><span data-money="40">40</span></div>
+                    <div><img class="coin" src="images/coin.png" alt=""><span data-money="40">40</span></div>
                 </button><button class="choice" data-choice="1">
                     <div class="mock">
                         <div class="card"><b>SKINNS</b><br><span style="font-size:10px">Daily essentials</span>
@@ -346,7 +335,7 @@
                         </div>
                     </div>
                     <div class="choice-title">Send Whatsapp brochure</div>
-                    <div><span class="coin">●</span><span data-money="30">30</span></div>
+                    <div><img class="coin" src="images/coin.png" alt=""><span data-money="30">30</span></div>
                 </button></div><button class="go" data-action="websiteChoice">Next</button>
         </template>
         <template data-screen="24">
@@ -376,7 +365,7 @@
         </template><template data-screen="27">
             <div class="title">Game Over!</div>
             <div class="copy">You built more than a product — you built a brand and earned Riya’s trust.</div>
-            <div style="font-size:38px;color:var(--lime);margin:14px">✦ ✦ ✦</div><button class="go"
+            <img class="completion-stars" src="images/stars.png" alt="" style="width:110px;height:42px;margin:14px"><button class="go"
                 data-action="restart">Play Again</button>
         </template>
         +

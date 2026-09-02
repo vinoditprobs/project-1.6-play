@@ -259,10 +259,11 @@ input {
     bottom: 0
 }
 
-.char svg,
 .char img {
     width: 100%;
     height: 100%;
+    object-fit: contain;
+    image-rendering: pixelated;
     filter: drop-shadow(5px 6px 0 rgba(0, 0, 0, .28))
 }
 
@@ -276,7 +277,7 @@ input {
     height: 100%;
     object-fit: cover;
     object-position:center top;
-    image-rendering: auto
+    image-rendering: pixelated
 }
 
 .asset-char img {
@@ -470,6 +471,26 @@ input {
     font-weight: 900;
     margin-right: 5px;
     border: 2px solid #c29700
+}
+
+.coin,
+.timer-icon {
+    width: 19px;
+    height: 19px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    vertical-align: middle
+}
+
+.timer-icon {
+    width: 18px;
+    height: 18px
+}
+
+.completion-stars {
+    display: block;
+    object-fit: contain;
+    image-rendering: pixelated
 }
 
 .go {
@@ -808,21 +829,30 @@ input {
 
 @media(max-width:720px) {
     .ui {
-        width: 92vw;
-        top: 4%;
-        bottom: 7%
+        width: 48vw;
+        min-width: 225px;
+        top: 2%;
+        bottom: 2%
     }
 
     .char {
-        display: none
+        display: block;
+        width: 160px;
+        height: 260px;
+        transform: scale(.62);
+        transform-origin: bottom
     }
 
     .bubble {
-        display: none
+        max-width: 145px;
+        border-width: 4px;
+        padding: 10px 12px;
+        font-size: 9px;
+        line-height: 1.25
     }
 
     .choice-row {
-        grid-template-columns: 1fr
+        grid-template-columns: 1fr 1fr
     }
 
     .panel {
@@ -830,7 +860,21 @@ input {
     }
 
     .floorbar {
-        display: none
+        display: flex;
+        gap: 5px;
+        bottom: 8px
+    }
+
+    .floorbar .floor-label {
+        font-size: 9px
+    }
+
+    .floorbar .floor-badge {
+        width: 25px;
+        height: 23px;
+        font-size: 11px;
+        border-width: 2px;
+        box-shadow: 2px 2px 0 #111
     }
 
     .rightStat {
@@ -839,4 +883,50 @@ input {
 
     .leftStat {
         left: 12px
+    }
+
+    .rightStat,
+    .leftStat {
+        font-size: 9px
+    }
+
+    .panel {
+        padding: 26px 10px 42px
+    }
+
+    .screen {
+        padding: 6px 3px 42px;
+        overflow: hidden;
+        justify-content: flex-start
+    }
+
+    .stage {
+        font-size: 11px
+    }
+
+    .title {
+        font-size: 14px
+    }
+
+    .sub,
+    .copy,
+    .go,
+    .choice-title {
+        font-size: 10px
+    }
+
+    .choice {
+        padding: 8px;
+        min-height: 60px
+    }
+
+    .choice-row {
+        gap: 8px;
+        margin-top: 8px
+    }
+
+    .choice {
+        padding: 5px;
+        font-size: 8px;
+        line-height: 1.15
     }
