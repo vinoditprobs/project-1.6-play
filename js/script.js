@@ -3,6 +3,8 @@ const $=id=>document.getElementById(id);
 const screenData=$('screen-data');
 const bubbleData=$('bubble-data');
 const cloneTemplate=(root,selector)=>root.querySelector(selector).content.cloneNode(true);
+let typewriterRun=0;
+let typewriterTimers=[];
 function timerText(){return `${S.time} seconds`}
 function startTimer(seconds){clearInterval(S.timer);S.time=seconds;S.running=true;updateStats();S.timer=setInterval(()=>{S.time--;updateStats();if(S.time<=0){clearInterval(S.timer);S.running=false;if(S.screen<27){alert('Time is up — Riya left the elevator. Try again.');S.screen=1;S.coins=0;S.choice=null;render();}}},1000)}
 function money(n=S.coins){const fragment=cloneTemplate(document,'#coin');fragment.append(String(n));return fragment}
@@ -21,22 +23,43 @@ function screenContent(){
 }
 function positionBubbles(){
   const scene=$('scene');
-  const sceneRect=scene.getBoundingClientRect();
+  const gameRect=$('game').getBoundingClientRect();
   scene.querySelectorAll('.bubble').forEach(bubble=>{
     const character=scene.querySelector(`.char.${bubble.classList.contains('left')?'left':'right'}`);
     if(!character)return;
     const characterRect=character.getBoundingClientRect();
-    const bubbleRect=bubble.getBoundingClientRect();
+    const bubbleWidth=bubble.offsetWidth;
+    const bubbleHeight=bubble.offsetHeight;
     const margin=8;
-    const centeredLeft=characterRect.left-sceneRect.left+(characterRect.width-bubbleRect.width)/2;
-    const left=Math.max(margin,Math.min(centeredLeft,sceneRect.width-bubbleRect.width-margin));
-    const top=Math.max(margin,characterRect.top-sceneRect.top-bubbleRect.height-10);
+    const centeredLeft=characterRect.left-gameRect.left+(characterRect.width-bubbleWidth)/2;
+    const left=Math.max(margin,Math.min(centeredLeft,gameRect.width-bubbleWidth-margin));
+    const preferredTop=characterRect.top-gameRect.top-bubbleHeight-10;
+    const visibleHeight=Math.min(gameRect.height,window.innerHeight);
+    const top=Math.max(margin,Math.min(preferredTop,visibleHeight-bubbleHeight-margin));
     bubble.style.left=`${left}px`;
     bubble.style.top=`${top}px`;
     bubble.style.right='auto';
   });
 }
-function addBubbles(){const scene=$('scene');scene.querySelectorAll('.bubble').forEach(element=>element.remove());const templates=[...bubbleData.querySelectorAll(`template[data-screen="${S.screen}"]`)].filter(template=>!template.dataset.choice||Number(template.dataset.choice)===S.choice);templates.forEach(template=>scene.append(template.content.cloneNode(true)));requestAnimationFrame(positionBubbles);}
+function stopTypewriter(){typewriterRun++;typewriterTimers.forEach(clearTimeout);typewriterTimers=[];}
+function typeBubble(bubble,run){
+  const text=bubble.dataset.typewriterText||'';
+  let index=0;
+  const typeNext=()=>{
+    if(run!==typewriterRun||!bubble.isConnected)return;
+    bubble.textContent=text.slice(0,index++);
+    positionBubbles();
+    if(index<=text.length){typewriterTimers.push(setTimeout(typeNext,28));}
+  };
+  typeNext();
+}
+function startTypewriter(){
+  const run=typewriterRun;
+  document.querySelectorAll('#scene .bubble').forEach(bubble=>{
+    typewriterTimers.push(setTimeout(()=>typeBubble(bubble,run),300));
+  });
+}
+function addBubbles(){const scene=$('scene');stopTypewriter();scene.querySelectorAll('.bubble').forEach(element=>element.remove());const templates=[...bubbleData.querySelectorAll(`template[data-screen="${S.screen}"]`)].filter(template=>!template.dataset.choice||Number(template.dataset.choice)===S.choice);templates.forEach(template=>scene.append(template.content.cloneNode(true)));scene.querySelectorAll('.bubble').forEach(bubble=>{bubble.dataset.typewriterText=bubble.textContent.trim();bubble.textContent=''});requestAnimationFrame(()=>{positionBubbles();startTypewriter()});}
 function bindScreen(){
   $('screen').querySelectorAll('[data-choice]').forEach(element=>element.addEventListener('click',event=>{event.preventDefault();pick(Number(element.dataset.choice))}));
   $('screen').querySelectorAll('[data-next]').forEach(element=>element.addEventListener('click',()=>{go(Number(element.dataset.next));if(element.dataset.startTimer)startTimer(Number(element.dataset.startTimer))}));

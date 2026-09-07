@@ -239,8 +239,8 @@ input {
 .char {
     position: absolute;
     bottom: -4px;
-    width: 220px;
-    height: 360px;
+    width: 270px;
+    height: 410px;
     z-index: 6;
     pointer-events: none
 }
@@ -293,27 +293,43 @@ input {
     left: auto;
     right: auto;
     top: auto;
+    width: min(300px, 28vw);
+    min-height: 220px;
     max-width: 300px;
-    background: #fff;
+    background: url("../images/speech-bubble.svg") center / 100% 100% no-repeat;
     color: #111;
-    border: 7px solid #111;
-    box-shadow: 5px 5px 0 rgba(0, 0, 0, .25);
-    padding: 18px 22px;
+    border: 0;
+    box-shadow: none;
+    padding: 46px 38px 64px;
     font-size: 15px;
     line-height: 1.35;
-    white-space: pre-line
+    white-space: pre-line;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px 18px 16px 16px;
+    overflow: hidden;
+    transform-origin: 50% 88%;
+    animation: bubble-pop .3s steps(3, end) both;
+    image-rendering: pixelated
 }
 
-.bubble:after {
-    content: "";
-    position: absolute;
-    width: 22px;
-    height: 22px;
-    background: #fff;
-    border-right: 7px solid #111;
-    border-bottom: 7px solid #111;
-    transform: rotate(45deg);
-    bottom: -15px
+@keyframes bubble-pop {
+    0% {
+        opacity: 0;
+        transform: scale(.72)
+    }
+
+    70% {
+        opacity: 1;
+        transform: scale(1.04)
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1)
+    }
 }
 
 .bubble.left {
@@ -335,11 +351,11 @@ input {
 }
 
 .bubble.thought {
-    border-radius: 45px
+    border-radius: 18px 18px 16px 16px
 }
 
 .bubble.round {
-    border-radius: 22px
+    border-radius: 18px 18px 16px 16px
 }
 
 /* center UI */
@@ -848,8 +864,8 @@ input {
 
     .bubble {
         max-width: 145px;
-        border-width: 4px;
-        padding: 10px 12px;
+        min-height: 150px;
+        padding: 28px 18px 42px;
         font-size: 9px;
         line-height: 1.25
     }
@@ -933,3 +949,5 @@ input {
         font-size: 8px;
         line-height: 1.15
     }
+
+}
