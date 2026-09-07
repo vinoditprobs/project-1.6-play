@@ -362,8 +362,8 @@ input {
 .ui {
     position: absolute;
     left: 50%;
-    top: 5%;
-    bottom: 8%;
+    top: 0;
+    bottom: 0;
     transform: translateX(-50%);
     width: min(580px, 48vw);
     z-index: 5;
@@ -375,10 +375,13 @@ input {
     flex: 1;
     min-height: 0;
     background: linear-gradient(180deg, #062a3d, #073047);
-    border: 4px solid #a9ef39;
-    outline: 3px solid #163d4d;
-    box-shadow: 0 0 0 6px rgba(0, 0, 0, .18), inset 0 0 0 3px #355465;
-    padding: 30px 24px 0;
+    border: 3px solid transparent;
+    border-image-source: url("../images/wave-border.png");
+    border-image-slice: 0 5;
+    border-image-width: 0 4px;
+    border-image-repeat: stretch repeat;
+    outline: 4px solid #3B748E;
+    padding: 0 24px 0;
     display: flex;
     flex-direction: column;
     position: relative
@@ -386,14 +389,11 @@ input {
 
 
 .stage {
-    position: absolute;
-    top: 8px;
-    left: 0;
-    right: 0;
     text-align: center;
     color: #a6ef38;
     font-weight: 900;
-    font-size: 16px
+    font-size: 16px;
+    padding:6px 0;
 }
 
 .screen {
@@ -422,10 +422,16 @@ input {
     background: #376676
 }
 
+.screen-content{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    align-items: center;
+}
+
 .title {
     font-size: 22px;
     font-weight: 900;
-    margin-bottom: 12px;
     color: #fff
 }
 
@@ -809,7 +815,9 @@ input {
 
 @media(max-width:950px) {
     .ui {
-        width: min(640px, 68vw)
+        width: min(640px, 68vw);
+        top: 5%;
+        bottom: 8%;
     }
 
     .char {
@@ -902,13 +910,12 @@ input {
     }
 
     .panel {
-        padding: 26px 10px 42px
+        padding: 0 10px 0
     }
 
     .screen {
-        padding: 6px 3px 42px;
+        padding: 20px 3px 20px;
         overflow: hidden;
-        justify-content: flex-start
     }
 
     .stage {
