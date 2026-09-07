@@ -39,12 +39,6 @@
     <template id="scene-inside">
         <div class="inside lift-inside"><img src="images/lift-inside-background.png" width="1440" height="800" alt="Lift Inside background"></div>
     </template>
-    <template id="character-1">
-        <div class="char left asset-char"><img src="images/character-1.png" width="204" height="402" alt="Character 1"></div>
-    </template>
-    <template id="character-2">
-        <div class="char right"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
-    </template>
     <template id="coin"><img class="coin" src="images/coin.png" width="19" height="19" alt=""></template>
     <template id="timer-icon"><img class="timer-icon" src="images/timer.png" width="18" height="18" alt=""></template>
     <div hidden id="bubble-data">
@@ -116,11 +110,13 @@
                 data-next="2">Enter Lift</button>
         </template>
         <template data-screen="2">
+            <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1.png" width="204" height="402" alt="Character 1"></div>
             <div class="title">Meet the founder</div>
             <div class="copy">You are the founder of a new skincare brand.</div>
             <div class="mission">SKINNS</div><button class="go" data-next="3">Next</button>
         </template>
         <template data-screen="3">
+            <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">Meet Riya</div>
             <div class="copy">This is Riya, your potential investor.<br>And a beauty retail store owner.</div><button
                 class="go" data-next="4">Next</button>
@@ -140,10 +136,14 @@
                 data-start-timer="30">Continue</button>
         </template>
         <template data-screen="6">
+            <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1.png" width="204" height="402" alt="Character 1"></div>
+            <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="copy" style="margin-bottom:170px">The elevator doors close. You and Riya are finally alone.
             </div><button class="go" data-next="7">Next</button>
         </template>
         <template data-screen="7">
+            <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1.png" width="204" height="402" alt="Character 1"></div>
+            <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="sub">(This is your USP)</div>
             <div class="title">Pick the one thing that sets it apart.</div>
             <div class="choice-row"><button class="choice" data-choice="0">I built a skincare brand for working women
@@ -153,19 +153,27 @@
                 class="go" data-action="quizUSP">GO</button>
         </template>
         <template data-screen="8">
+            <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1.png" width="204" height="402" alt="Character 1"></div>
+            <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">Uh-oh...</div>
             <div class="copy">you picked the wrong option.<br>She's not impressed.</div><button class="go"
                 data-next="7">Try Again</button>
         </template><template data-screen="9">
+            <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1.png" width="204" height="402" alt="Character 1"></div>
+            <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">You picked the right answer, Good job!</div>
             <div class="copy">You have her attention now.</div>
             <div class="timer"><img class="timer-icon" src="images/timer.png" alt=""> 60 seconds will start</div><button class="go" data-next="10"
                 data-start-timer="60">GO</button>
         </template><template data-screen="10">
+            <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1.png" width="204" height="402" alt="Character 1"></div>
+            <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">Keep the conversation going.</div>
             <div class="copy">Riya leans in and asks for proof.</div><button class="go" data-next="11">Next</button>
         </template>
         <template data-screen="11">
+            <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1.png" width="204" height="402" alt="Character 1"></div>
+            <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">Ohh no...she's rethinking. Choose fast!</div>
             <div class="choice-row"><button class="choice" data-choice="0">
                     <div class="mock">
@@ -184,6 +192,8 @@
                 </button></div><button class="go" data-action="itemChoice">GO</button>
         </template>
         <template data-screen="12">
+            <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1.png" width="204" height="402" alt="Character 1"></div>
+            <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">Your poster creates awareness...</div>
             <div class="mock">
                 <div class="poster">MEGA<br>SALE<br><span style="font-size:10px">50% OFF</span></div>
@@ -191,6 +201,8 @@
             <div class="copy">A Poster create awareness, But investors need to experience your product, let showcase it
                 with professional packaging first</div><button class="go" data-next="11">Go Back</button>
         </template><template data-screen="13">
+            <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1.png" width="204" height="402" alt="Character 1"></div>
+            <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">Your sample doesn't have a package, quickly get it done by P1.6</div>
             <div class="mock">
                 <div class="bottles">
@@ -201,6 +213,8 @@
             </div><button class="go" data-next="14">Next</button>
         </template>
         <template data-screen="14">
+            <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1.png" width="204" height="402" alt="Character 1"></div>
+            <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">Samples with packaging</div>
             <div class="mock">
                 <div class="bottles">
@@ -213,6 +227,8 @@
             <div class="copy">Need 20 Coins to get this <img class="coin" src="images/coin.png" alt=""><span data-money="20">20</span></div>
             <button class="go" data-action="buyPack">Next</button>
         </template><template data-screen="15">
+            <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1.png" width="204" height="402" alt="Character 1"></div>
+            <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">Uh-oh...You don't have coins.</div>
             <div class="copy">Quickly fill in your details to claim 100 coins.</div>
             <div class="fieldset"><label>Name<input id="name" value=""></label><label>E-mail ID<input id="email"
@@ -220,12 +236,16 @@
                 <div class="error" id="formError"></div>
             </div><button class="go" data-action="claim">Submit</button>
         </template><template data-screen="16">
+            <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1.png" width="204" height="402" alt="Character 1"></div>
+            <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">Congratulations!</div>
             <div class="copy">You've claimed 100 coins.</div>
             <div class="mission"><img class="coin" src="images/coin.png" alt=""><span data-money="100">100</span></div><button class="go"
                 data-next="17">Continue</button>
         </template>
         <template data-screen="17">
+            <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1.png" width="204" height="402" alt="Character 1"></div>
+            <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">Good Job!</div>
             <div class="copy">A well-designed package builds trust, communicates quality, and creates a memorable first
                 impression.</div>
@@ -239,11 +259,15 @@
             </div>
             <div class="choice-title">Samples with packaging</div><button class="go" data-next="18">Next</button>
         </template><template data-screen="18">
+            <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1.png" width="204" height="402" alt="Character 1"></div>
+            <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">The next floor is here.</div>
             <div class="copy">This looks great! Can I look at your social media?</div><button class="go"
                 data-next="19">Next</button>
         </template>
         <template data-screen="19">
+            <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1.png" width="204" height="402" alt="Character 1"></div>
+            <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">Uh-Oh, you're page is inconsistent.</div>
             <div class="mock">
                 <div class="phone">
@@ -258,6 +282,8 @@
                 data-next="20">Next</button>
         </template>
         <template data-screen="20">
+            <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1.png" width="204" height="402" alt="Character 1"></div>
+            <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">Get a brand language from Project 1.6</div>
             <div class="choice-row"><button class="choice" data-choice="0">
                     <div class="mock">
@@ -286,6 +312,8 @@
                 </button></div><button class="go" data-action="brandChoice">Next</button>
         </template>
         <template data-screen="21" data-choice="0">
+            <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1.png" width="204" height="402" alt="Character 1"></div>
+            <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">Umm...</div>
             <div class="mock">
                 <div class="phone">
@@ -298,6 +326,8 @@
             </div>
             <div class="choice-title">Show as it is</div><button class="go" data-next="20">Next</button>
         </template><template data-screen="21" data-choice="1">
+            <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1.png" width="204" height="402" alt="Character 1"></div>
+            <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">Good Job!</div>
             <div class="copy">A strong brand identity creates consistency, builds credibility, and helps customers
                 recognize and remember your business.</div>
@@ -313,10 +343,14 @@
             <div class="choice-title">New brand language</div><button class="go" data-next="22">Next</button>
         </template>
         <template data-screen="22">
+            <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1.png" width="204" height="402" alt="Character 1"></div>
+            <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">18 seconds</div>
             <div class="copy">The 3rd floor is approaching. Great content! But where do you send customers who want to
                 learn more and actually buy from you?</div><button class="go" data-next="23">Next</button>
         </template><template data-screen="23">
+            <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1.png" width="204" height="402" alt="Character 1"></div>
+            <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">This is your last chance...Impress her!</div>
             <div class="choice-row"><button class="choice" data-choice="0">
                     <div class="mock">
@@ -339,6 +373,8 @@
                 </button></div><button class="go" data-action="websiteChoice">Next</button>
         </template>
         <template data-screen="24">
+            <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1.png" width="204" height="402" alt="Character 1"></div>
+            <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">Umm...</div>
             <div class="mock">
                 <div class="card"><b>SKINNS</b><br><span style="font-size:10px">Daily essentials</span>
@@ -347,10 +383,14 @@
             </div>
             <div class="choice-title">Send Whatsapp brochure</div><button class="go" data-next="25">Next</button>
         </template><template data-screen="25">
+            <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1.png" width="204" height="402" alt="Character 1"></div>
+            <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">Not enough...</div>
             <div class="copy">A WhatsApp brochure is helpful, but a professional website gives customers a trusted place
                 to explore and buy from your brand.</div><button class="go" data-next="23">Go Back</button>
         </template><template data-screen="26">
+            <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1.png" width="204" height="402" alt="Character 1"></div>
+            <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">Good Job!</div>
             <div class="copy">A well-designed website builds credibility, showcases your brand, and gives customers a
                 seamless way to discover and buy from you.</div>
@@ -363,6 +403,8 @@
             </div>
             <div class="choice-title">New Website</div><button class="go" data-next="27">Next</button>
         </template><template data-screen="27">
+            <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1.png" width="204" height="402" alt="Character 1"></div>
+            <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">Game Over!</div>
             <div class="copy">You built more than a product — you built a brand and earned Riya’s trust.</div>
             <img class="completion-stars" src="images/stars.png" alt="" style="width:110px;height:42px;margin:14px"><button class="go"

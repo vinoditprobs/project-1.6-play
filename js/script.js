@@ -12,9 +12,13 @@ function updateStats(){
   if(S.running){const timer=document.createElement('b');timer.append(timerText());leftStat.append(cloneTemplate(document,'#timer-icon'),' ',timer)}
   if(S.coins>=0){rightStat.append('Total coins: ',money())}
 }
-function sceneFor(n){const scene=$('scene');scene.replaceChildren(cloneTemplate(document,'#scene-lobby'));if(n>4&&n!==27)scene.replaceChildren(cloneTemplate(document,'#scene-inside'));if(n===2)scene.append(cloneTemplate(document,'#character-1'));else if(n===3)scene.append(cloneTemplate(document,'#character-2'));else if(n===6||n===7||n>=8&&n<=27){scene.append(cloneTemplate(document,'#character-1'));scene.append(cloneTemplate(document,'#character-2'));}}
+function sceneFor(n){const scene=$('scene');scene.replaceChildren(cloneTemplate(document,n>4&&n!==27?'#scene-inside':'#scene-lobby'));}
 function screenTemplate(n){const choices=screenData.querySelectorAll(`template[data-screen="${n}"]`);return [...choices].find(template=>!template.dataset.choice||Number(template.dataset.choice)===S.choice)||choices[0];}
-function screenContent(){return screenTemplate(S.screen).content.cloneNode(true)}
+function screenContent(){
+  const content=screenTemplate(S.screen).content.cloneNode(true);
+  content.querySelectorAll('[data-scene-character]').forEach(character=>$('scene').append(character));
+  return content
+}
 function addBubbles(){const scene=$('scene');scene.querySelectorAll('.bubble').forEach(element=>element.remove());const templates=[...bubbleData.querySelectorAll(`template[data-screen="${S.screen}"]`)].filter(template=>!template.dataset.choice||Number(template.dataset.choice)===S.choice);templates.forEach(template=>scene.append(template.content.cloneNode(true)));}
 function bindScreen(){
   $('screen').querySelectorAll('[data-choice]').forEach(element=>element.addEventListener('click',event=>{event.preventDefault();pick(Number(element.dataset.choice))}));
