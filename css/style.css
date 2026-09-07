@@ -760,17 +760,20 @@ input {
 .floorbar .floor-badge {
     width: 39px;
     height: 32px;
-    background: #dfd5bd;
+    background: url("../images/number-coin-bg.svg") center / 100% 100% no-repeat;
     color: #112b31;
     display: grid;
     place-items: center;
-    border: 3px solid #111;
-    box-shadow: 2px 2px 0 #111;
-    font-weight: 900
+    border: 0;
+    box-shadow: none;
+    font-weight: 900;
+    image-rendering: pixelated
 }
 
 .floorbar .floor-badge.active {
-    background: var(--lime)
+    background-image: url("../images/number-coin-highlighted-bg.svg");
+    color: #16320d;
+    filter: drop-shadow(0 0 4px rgba(139, 234, 16, .85))
 }
 
 /* full scene */
