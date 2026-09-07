@@ -290,6 +290,9 @@ input {
 .bubble {
     position: absolute;
     z-index: 7;
+    left: auto;
+    right: auto;
+    top: auto;
     max-width: 300px;
     background: #fff;
     color: #111;

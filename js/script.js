@@ -19,7 +19,24 @@ function screenContent(){
   content.querySelectorAll('[data-scene-character]').forEach(character=>$('scene').append(character));
   return content
 }
-function addBubbles(){const scene=$('scene');scene.querySelectorAll('.bubble').forEach(element=>element.remove());const templates=[...bubbleData.querySelectorAll(`template[data-screen="${S.screen}"]`)].filter(template=>!template.dataset.choice||Number(template.dataset.choice)===S.choice);templates.forEach(template=>scene.append(template.content.cloneNode(true)));}
+function positionBubbles(){
+  const scene=$('scene');
+  const sceneRect=scene.getBoundingClientRect();
+  scene.querySelectorAll('.bubble').forEach(bubble=>{
+    const character=scene.querySelector(`.char.${bubble.classList.contains('left')?'left':'right'}`);
+    if(!character)return;
+    const characterRect=character.getBoundingClientRect();
+    const bubbleRect=bubble.getBoundingClientRect();
+    const margin=8;
+    const centeredLeft=characterRect.left-sceneRect.left+(characterRect.width-bubbleRect.width)/2;
+    const left=Math.max(margin,Math.min(centeredLeft,sceneRect.width-bubbleRect.width-margin));
+    const top=Math.max(margin,characterRect.top-sceneRect.top-bubbleRect.height-10);
+    bubble.style.left=`${left}px`;
+    bubble.style.top=`${top}px`;
+    bubble.style.right='auto';
+  });
+}
+function addBubbles(){const scene=$('scene');scene.querySelectorAll('.bubble').forEach(element=>element.remove());const templates=[...bubbleData.querySelectorAll(`template[data-screen="${S.screen}"]`)].filter(template=>!template.dataset.choice||Number(template.dataset.choice)===S.choice);templates.forEach(template=>scene.append(template.content.cloneNode(true)));requestAnimationFrame(positionBubbles);}
 function bindScreen(){
   $('screen').querySelectorAll('[data-choice]').forEach(element=>element.addEventListener('click',event=>{event.preventDefault();pick(Number(element.dataset.choice))}));
   $('screen').querySelectorAll('[data-next]').forEach(element=>element.addEventListener('click',()=>{go(Number(element.dataset.next));if(element.dataset.startTimer)startTimer(Number(element.dataset.startTimer))}));
@@ -36,4 +53,5 @@ function brandChoice(){if(S.choice===null)return;if(S.choice===0){S.screen=21;re
 function websiteChoice(){if(S.choice===null)return;if(S.choice===1){S.screen=24;render()}else{S.coins=Math.max(0,S.coins-40);S.screen=26;render()}}
 function restart(){clearInterval(S.timer);S.screen=1;S.choice=null;S.coins=0;S.time=30;render()}
 $('begin').onclick=()=>{$('start').classList.add('hide');render()};
+window.addEventListener('resize',positionBubbles);
 render();
