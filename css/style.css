@@ -582,19 +582,22 @@ input {
 
 .go {
     margin-top: 18px;
-    background: var(--lime);
     color: #17320d;
     border: 3px solid #3b8b0c;
     border-radius: 18px;
     padding: 10px 30px;
     font-weight: 900;
     cursor: pointer;
-    box-shadow: 0 4px 0 #386b0d
+    box-shadow: 0 4px 0 #386b0d;
+    background: #6ACB1D;
+    background: linear-gradient(0deg,rgba(106, 203, 29, 1) 0%, rgba(164, 239, 56, 1) 50%, rgba(106, 203, 29, 1) 100%);
 }
 
 .go:active {
     transform: translateY(2px);
-    box-shadow: 0 2px 0 #386b0d
+    box-shadow: 0 2px 0 #386b0d;
+    background: #A4EF38;
+    background: linear-gradient(0deg,rgba(164, 239, 56, 1) 0%, rgba(106, 203, 29, 1) 50%, rgba(164, 239, 56, 1) 100%);
 }
 
 .choice-row {
