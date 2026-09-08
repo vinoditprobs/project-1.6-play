@@ -16,9 +16,17 @@
             <section class="panel">
                 <div class="stage" id="stage"></div>
                 <div class="screen" id="screen">
+                    <div class="screen_header">
+                        <div class="lift-arrows" aria-hidden="true">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <div class="current-floor" id="currentFloor">0</div>
+                    </div>
                     <div id="screenContent" class="screen-content"></div>
-                    <div class="leftStat" id="leftStat"></div>
-                    <div class="rightStat" id="rightStat"></div>
+                    <div class="screen_footer">
+                        <div class="leftStat" id="leftStat"></div>
+                        <div class="rightStat" id="rightStat"></div>
+                    </div>
                 </div>
                 <div class="floorbar" id="floorbar"><span class="floor-label">Floor<br>Number</span><span
                         class="floor-badge">0</span><span class="floor-badge">1</span><span
@@ -122,8 +130,6 @@
             <div class="title">Meet Riya</div>
             <div class="copy">This is Riya, your potential investor.<br>And a beauty retail store owner.</div><button
                 class="go" data-next="4">Next</button>
-
-                <question>Test</question>
         </template>
         <template data-screen="4">
             <div class="title">Your Mission</div>

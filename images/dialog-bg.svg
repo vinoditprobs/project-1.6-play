@@ -1,0 +1,41 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 634" width="600" height="634" preserveAspectRatio="none">
+	<defs>
+		<linearGradient id="g1" x2="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(402.68,511.914,-508.9,400.309,5,96.778)">
+			<stop offset="0" stop-color="#8ab9d2"/>
+			<stop offset=".481" stop-color="#4e85a2"/>
+			<stop offset=".755" stop-color="#3e7795"/>
+			<stop offset="1" stop-color="#336e8c"/>
+		</linearGradient>
+	</defs>
+	<style>
+		.s0 { fill: none;stroke: #8bea10;stroke-width: 6 } 
+		.s1 { fill: none;stroke: url(#g1);stroke-width: 6 } 
+		.s2 { fill: #2b6381 } 
+		.s3 { fill: #21536f } 
+		.s4 { fill: #22526d } 
+		.s5 { fill: #194560 } 
+		.s6 { fill: #1b4e67 } 
+		.s7 { fill: #255a76 } 
+		.s8 { fill: #3f7d9b } 
+		.s9 { fill: #407d9a } 
+		.s10 { fill: #28607b } 
+		.s11 { fill: #29607c } 
+	</style>
+	<path class="s0" d="m582.85 3h-570.75v12.23h-9.1v606.73h8.59v9.04h571.76v-7.45h7.08v-5.84h6.57v-602.48h-8.59v-6.91h-5.57z"/>
+	<path class="s1" d="m580.94 4.05h-566.9v12.17h-9.04v603.68h8.54v8.99h567.9v-7.4h7.03v-5.82h6.53v-599.45h-8.54v-6.88h-5.52z"/>
+	<path fill-rule="evenodd" class="s2" d="m28 20.91h10v11.59h-10z"/>
+	<path fill-rule="evenodd" class="s3" d="m50 7.21h10v13.7h-10z"/>
+	<path fill-rule="evenodd" class="s4" d="m18 32.5h10v9.48h-10z"/>
+	<path class="s5" d="m18 44.09l2-2.1h8v8.42h-10z"/>
+	<path fill-rule="evenodd" class="s6" d="m8 66.49h10.26v10.27h-10.26z"/>
+	<path fill-rule="evenodd" class="s2" d="m572 21.97h-10v11.59h10z"/>
+	<path fill-rule="evenodd" class="s3" d="m550 8.27h-10v13.7h10z"/>
+	<path fill-rule="evenodd" class="s4" d="m582 33.56h-10v9.48h10z"/>
+	<path class="s5" d="m582 45.15l-2-2.11h-8v8.43h10z"/>
+	<path fill-rule="evenodd" class="s6" d="m592 67.55h-10.26v10.26h10.26z"/>
+	<path fill-rule="evenodd" class="s7" d="m554 608.87h7v9.48h-7z"/>
+	<path fill-rule="evenodd" class="s8" d="m570 607.82h8v9.48h-8z"/>
+	<path fill-rule="evenodd" class="s9" d="m586 618.36h7v6.32h-7z"/>
+	<path fill-rule="evenodd" class="s10" d="m578 600.44h8v7.38h-8z"/>
+	<path fill-rule="evenodd" class="s11" d="m578 586.75h8v9.48h-8z"/>
+</svg>

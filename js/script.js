@@ -14,6 +14,7 @@ function updateStats(){
   if(S.running){const timer=document.createElement('b');timer.append(timerText());leftStat.append(cloneTemplate(document,'#timer-icon'),' ',timer)}
   if(S.coins>=0){rightStat.append('Total coins: ',money())}
 }
+function currentFloor(){return S.screen>=22?3:S.screen>=18?2:S.screen>=10?1:0}
 function sceneFor(n){const scene=$('scene');scene.replaceChildren(cloneTemplate(document,n>4&&n!==27?'#scene-inside':'#scene-lobby'));}
 function screenTemplate(n){const choices=screenData.querySelectorAll(`template[data-screen="${n}"]`);return [...choices].find(template=>!template.dataset.choice||Number(template.dataset.choice)===S.choice)||choices[0];}
 function screenContent(){
@@ -65,7 +66,7 @@ function bindScreen(){
   $('screen').querySelectorAll('[data-next]').forEach(element=>element.addEventListener('click',()=>{go(Number(element.dataset.next));if(element.dataset.startTimer)startTimer(Number(element.dataset.startTimer))}));
   $('screen').querySelectorAll('[data-action]').forEach(element=>element.addEventListener('click',()=>window[element.dataset.action]()));
 }
-function render(){clearInterval(S.timer);S.running=false;S.screen=Math.max(1,Math.min(27,S.screen));sceneFor(S.screen);$('screenContent').replaceChildren(screenContent());$('screen').scrollTop=0;$('screen').querySelectorAll('.choice[data-choice]').forEach(element=>{const selected=Number(element.dataset.choice)===S.choice;element.classList.toggle('selected',selected);element.setAttribute('aria-pressed',selected?'true':'false')});bindScreen();$('stage').textContent=`SCREEN ${S.screen} / 27`;document.querySelectorAll('.floor-badge').forEach((element,index)=>element.classList.toggle('active',index===(S.screen>=22?3:S.screen>=18?2:S.screen>=10?1:0)));updateStats();addBubbles();if(S.screen===4||S.screen===5)startTimer(30);else if(S.screen===10)startTimer(60);else if(S.screen>=11&&S.screen<=26)startTimer(Math.max(S.time||60,1));}
+function render(){clearInterval(S.timer);S.running=false;S.screen=Math.max(1,Math.min(27,S.screen));sceneFor(S.screen);$('screenContent').replaceChildren(screenContent());$('screen').scrollTop=0;$('screen').querySelectorAll('.choice[data-choice]').forEach(element=>{const selected=Number(element.dataset.choice)===S.choice;element.classList.toggle('selected',selected);element.setAttribute('aria-pressed',selected?'true':'false')});bindScreen();$('stage').textContent=`SCREEN ${S.screen} / 27`;$('currentFloor').textContent=currentFloor();document.querySelectorAll('.floor-badge').forEach((element,index)=>element.classList.toggle('active',index===currentFloor()));updateStats();addBubbles();if(S.screen===4||S.screen===5)startTimer(30);else if(S.screen===10)startTimer(60);else if(S.screen>=11&&S.screen<=26)startTimer(Math.max(S.time||60,1));}
 function go(n){S.screen=n;S.choice=null;render()}
 function pick(i){S.choice=i;$('screen').querySelectorAll('.choice[data-choice]').forEach(element=>{const selected=Number(element.dataset.choice)===i;element.classList.toggle('selected',selected);element.setAttribute('aria-pressed',selected?'true':'false')});}
 function quizUSP(){if(S.choice===null)return;if(S.choice===1){S.screen=9;render()}else{S.screen=8;render()}}
