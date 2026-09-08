@@ -188,9 +188,9 @@
             <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">Ohh no...she's rethinking. Choose fast!</div>
             <div class="choice-row"><button class="choice" data-choice="0">
-                    <figure class="mock"><img src="images/mock-bottles.png" width="130" height="130" alt="Multiple blank bottle mockups"><figcaption>Multiple blank bottle mockups</figcaption></figure>
+                    <div class="selected_mock"><figure class="mock"><img src="images/mock-bottles.png" width="130" height="130" alt="Multiple blank bottle mockups"><figcaption>Multiple blank bottle mockups</figcaption></figure></div>
                 </button><button class="choice" data-choice="1">
-                    <figure class="mock"><img src="images/mock-poster.png" width="130" height="130" alt="Mega Sale poster"><figcaption>Mega Sale poster</figcaption></figure>
+                    <div class="selected_mock"><figure class="mock"><img src="images/mock-poster.png" width="130" height="130" alt="Mega Sale poster"><figcaption>Mega Sale poster</figcaption></figure></div>
                 </button></div><button class="go" data-action="itemChoice">GO</button>
         </template>
         <template data-screen="12">
@@ -204,7 +204,10 @@
             <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1.png" width="204" height="402" alt="Character 1"></div>
             <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">Your sample doesn't have a package, quickly get it done by P1.6</div>
-            <figure class="mock"><img src="images/mock-bottles.png" width="130" height="130" alt="Blank bottle mockups"><figcaption>Blank bottle mockups</figcaption></figure><button class="go" data-next="14">Next</button>
+            <div class="selected_mock" >
+                <figure class="mock"><img src="images/mock-bottles.png" width="130" height="130" alt="Blank bottle mockups"><figcaption>Blank bottle mockups</figcaption></figure>
+            </div>
+            <button class="go" data-next="14">Next</button>
         </template>
         <template data-screen="14">
             <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1.png" width="204" height="402" alt="Character 1"></div>
@@ -257,10 +260,10 @@
             <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">Get a brand language from Project 1.6</div>
             <div class="choice-row"><button class="choice" data-choice="0">
-                    <figure class="mock"><img src="images/mock-phoneOld.png" width="130" height="130" alt="Show as it is"><figcaption>Show as it is</figcaption></figure>
+                    <div class="selected_mock"><figure class="mock"><img src="images/mock-phoneOld.png" width="130" height="130" alt="Show as it is"><figcaption>Show as it is</figcaption></figure></div>
                     <div><img class="coin" src="images/coin.png" alt=""><span data-money="20">20</span></div>
                 </button><button class="choice" data-choice="1">
-                    <figure class="mock"><img src="images/mock-phoneNew.png" width="130" height="130" alt="Show new design"><figcaption>Show new design</figcaption></figure>
+                    <div class="selected_mock"><figure class="mock"><img src="images/mock-phoneNew.png" width="130" height="130" alt="Show new design"><figcaption>Show new design</figcaption></figure></div>
                     <div><img class="coin" src="images/coin.png" alt=""><span data-money="30">30</span></div>
                 </button></div><button class="go" data-action="brandChoice">Next</button>
         </template>
@@ -288,10 +291,10 @@
             <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">This is your last chance...Impress her!</div>
             <div class="choice-row"><button class="choice" data-choice="0">
-                    <figure class="mock"><img src="images/mock-laptop.png" width="130" height="130" alt="Show website"><figcaption>Show website</figcaption></figure>
+                    <div class="selected_mock"><figure class="mock"><img src="images/mock-laptop.png" width="130" height="130" alt="Show website"><figcaption>Show website</figcaption></figure></div>
                     <div><img class="coin" src="images/coin.png" alt=""><span data-money="40">40</span></div>
                 </button><button class="choice" data-choice="1">
-                    <figure class="mock"><img src="images/mock-brochure.png" width="130" height="130" alt="Send Whatsapp brochure"><figcaption>Send Whatsapp brochure</figcaption></figure>
+                    <div class="selected_mock"><figure class="mock"><img src="images/mock-brochure.png" width="130" height="130" alt="Send Whatsapp brochure"><figcaption>Send Whatsapp brochure</figcaption></figure></div>
                     <div><img class="coin" src="images/coin.png" alt=""><span data-money="30">30</span></div>
                 </button></div><button class="go" data-action="websiteChoice">Next</button>
         </template>
