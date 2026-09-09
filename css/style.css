@@ -979,7 +979,8 @@ figure.mock {
     z-index: 20;
     background: rgba(1, 15, 20, .78);
     display: grid;
-    place-items: center
+    place-items: center;
+    animation: start-overlay-in .45s ease-out both
 }
 
 .start-card {
@@ -993,6 +994,24 @@ figure.mock {
     background-origin: border-box;
     background-clip: border-box;
     background-repeat: no-repeat;
+    animation: start-card-in .6s cubic-bezier(.2, .8, .2, 1) .08s both
+}
+
+@keyframes start-overlay-in {
+    from { opacity: 0 }
+    to { opacity: 1 }
+}
+
+@keyframes start-card-in {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(.97)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1)
+    }
 }
 
 .start-card h1 {
