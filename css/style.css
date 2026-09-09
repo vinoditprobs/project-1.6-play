@@ -495,7 +495,8 @@ input {
 .screen {
     flex: 1;
     min-height: 0;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -514,6 +515,8 @@ input {
 }
 
 .screen_header {
+    position: sticky;
+    top: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -578,18 +581,27 @@ input {
 }
 
 .screen_footer{
+    position: sticky;
+    bottom: 0;
     display:flex;
     justify-content:space-between;
     margin-top:auto;
     width:100%;
+    z-index: 2;
+    background: rgba(6, 42, 61, .94)
 }
 
 .screen::-webkit-scrollbar {
-    width: 7px
+    width: 8px
 }
 
 .screen::-webkit-scrollbar-thumb {
-    background: #376676
+    background: #376676;
+    border: 2px solid #062a3d
+}
+
+.screen::-webkit-scrollbar-track {
+    background: rgba(7, 48, 71, .7)
 }
 
 .screen-content{
@@ -598,6 +610,8 @@ input {
     gap:12px;
     align-items: center;
     margin-top: auto;
+    width: 100%;
+    flex: 0 0 auto
 }
 
 
@@ -918,17 +932,25 @@ figure.mock {
 
 .fieldset label {
     font-size: 14px;
-    color: #ffffff
+    color: #ffffff;
+    padding: 0 8px;
 }
 
 .fieldset input {
-    width: 100%;
-    padding:10px 12px;
+    width: calc(100% + 16px);
+    margin-inline: -8px;
+    padding: 10px 14px;
     background: #ffffff;
     color: #0d3342;
-    border-radius: 8px;
+    border: 3px solid #bfbfbf;
     margin-top: 4px;
-    outline:none
+    outline: none;
+    clip-path: polygon(0 9px, 3px 9px, 3px 6px, 6px 6px, 6px 3px, 9px 3px, 9px 0, calc(100% - 9px) 0, calc(100% - 9px) 3px, calc(100% - 6px) 3px, calc(100% - 6px) 6px, calc(100% - 3px) 6px, calc(100% - 3px) 9px, 100% 9px, 100% calc(100% - 9px), calc(100% - 3px) calc(100% - 9px), calc(100% - 3px) calc(100% - 6px), calc(100% - 6px) calc(100% - 6px), calc(100% - 6px) calc(100% - 3px), calc(100% - 9px) calc(100% - 3px), calc(100% - 9px) 100%, 9px 100%, 9px calc(100% - 3px), 6px calc(100% - 3px), 6px calc(100% - 6px), 3px calc(100% - 6px), 3px calc(100% - 9px), 0 calc(100% - 9px));
+    image-rendering: pixelated
+}
+
+.fieldset input:focus {
+    filter: drop-shadow(0 0 3px rgba(139, 234, 16, .75))
 }
 
 .error {
@@ -1414,7 +1436,8 @@ figure.mock {
 
     .screen {
         padding: 20px 12px 20px;
-        overflow: hidden;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 
     .screen_header {
