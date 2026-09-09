@@ -923,7 +923,7 @@ figure.mock {
 
 .fieldset input {
     width: 100%;
-    padding: 12px;
+    padding:10px 12px;
     background: #ffffff;
     color: #0d3342;
     border-radius: 8px;
