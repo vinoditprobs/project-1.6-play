@@ -356,9 +356,9 @@ input {
     color: #111;
     border: 0;
     box-shadow: none;
-    padding: 46px 38px 64px;
-    font-size: 15px;
-    line-height: 1.35;
+    padding: 40px 32px 65px;
+    font-size: 16px;
+    line-height: 1.4;
     white-space: pre-line;
     text-align: center;
     display: flex;
@@ -570,6 +570,7 @@ input {
 
 .title {
     font-size: 22px;
+    line-height: 1.4;
     font-weight: 900;
     color: #fff
 }
@@ -694,6 +695,7 @@ input {
 .screen-content > .selected_mock{
     filter: drop-shadow(0 0 4px rgba(139, 234, 16, .85));
     max-width: calc(50% - 22px);
+    min-width: 200px;
 }
 
 .choice.selected {
@@ -1259,7 +1261,8 @@ figure.mock {
     .ui {
         width: min(640px, 68vw);
         top: 5%;
-        bottom: 8%;
+        bottom: auto;
+        max-height: 90vh;
     }
 
     .char {
@@ -1289,10 +1292,10 @@ figure.mock {
 
 @media(max-width:720px) {
     .ui {
-        width: 48vw;
+        width: 80vw;
         min-width: 225px;
         top: 2%;
-        bottom: 2%
+        bottom: auto;
     }
 
     .char {
@@ -1307,8 +1310,8 @@ figure.mock {
         max-width: 145px;
         min-height: 150px;
         padding: 28px 18px 42px;
-        font-size: 9px;
-        line-height: 1.25
+        font-size:11px;
+        line-height: 1.35
     }
 
     .choice-row {
@@ -1348,7 +1351,7 @@ figure.mock {
 
     .rightStat,
     .leftStat {
-        font-size: 9px
+        font-size: 12px
     }
 
     .panel {
@@ -1356,7 +1359,7 @@ figure.mock {
     }
 
     .screen {
-        padding: 20px 3px 20px;
+        padding: 20px 12px 20px;
         overflow: hidden;
     }
 
@@ -1380,30 +1383,40 @@ figure.mock {
     }
 
     .title {
-        font-size: 14px
+        font-size: 16px
     }
 
     .sub,
     .copy,
     .go,
     .choice-title {
-        font-size: 10px
+        font-size: 16px
     }
 
     .choice {
-        padding: 8px;
+        padding: 16px;
         min-height: 60px
     }
 
     .choice-row {
-        gap: 8px;
+        gap: 16px;
         margin-top: 8px
     }
 
     .choice {
-        padding: 5px;
-        font-size: 8px;
-        line-height: 1.15
+        padding: 16px;
+        font-size: 13px;
+        line-height: 1.25
+    }
+    .mock {
+    width: 110px;
+    height: 110px;
+    }
+    .choice, .screen-content > .selected_mock{
+                min-height: 170px;
+    }
+    .screen-content > .selected_mock{
+        min-width: 150px;
     }
 
 }
