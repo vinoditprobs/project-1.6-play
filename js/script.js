@@ -6,7 +6,9 @@ const cloneTemplate=(root,selector)=>root.querySelector(selector).content.cloneN
 let typewriterRun=0;
 let typewriterTimers=[];
 function timerText(){return `${S.time} seconds`}
-function startTimer(seconds){clearInterval(S.timer);S.time=seconds;S.running=true;updateStats();S.timer=setInterval(()=>{S.time--;updateStats();if(S.time<=0){clearInterval(S.timer);S.running=false;if(S.screen<27){alert('Time is up — Riya left the elevator. Try again.');S.screen=1;S.coins=0;S.choice=null;render();}}},1000)}
+function startTimer(seconds){clearInterval(S.timer);S.time=seconds;S.running=true;updateStats();S.timer=setInterval(()=>{S.time--;updateStats();if(S.time<=0){clearInterval(S.timer);S.running=false;if(S.screen<27)showTimeoutPopup()}},1000)}
+function showTimeoutPopup(){$('timeoutPopup').classList.remove('hide');$('retryTimeout').focus()}
+function retryTimeout(){clearInterval(S.timer);S.screen=1;S.coins=0;S.choice=null;S.time=30;S.started=true;S.introVisible=true;$('timeoutPopup').classList.add('hide');render()}
 function money(n=S.coins){const fragment=cloneTemplate(document,'#coin');fragment.append(String(n));return fragment}
 function updateStats(){
   const leftStat=$('leftStat'),rightStat=$('rightStat');
@@ -80,6 +82,7 @@ function brandChoice(){if(S.choice===null)return;if(S.choice===0){S.screen=21;re
 function websiteChoice(){if(S.choice===null)return;if(S.choice===1){S.screen=24;render()}else{S.coins=Math.max(0,S.coins-40);S.screen=26;render()}}
 function restart(){clearInterval(S.timer);S.screen=1;S.choice=null;S.coins=0;S.time=30;render()}
 $('begin').onclick=()=>{S.started=true;S.introVisible=true;render()};
+$('retryTimeout').onclick=retryTimeout;
 window.addEventListener('resize',positionBubbles);
 render();
 setTimeout(()=>{if(!S.started){S.introVisible=true;render()}},3000);

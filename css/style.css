@@ -1103,6 +1103,76 @@ figure.mock {
     display: none !important
 }
 
+.timeout-popup {
+    position: absolute;
+    inset: 0;
+    z-index: 9999;
+    display: grid;
+    place-items: center
+}
+
+.timeout-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(1, 15, 20, .62);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px)
+}
+
+.timeout-card {
+    position: relative;
+    z-index: 1;
+    width: min(520px, 86vw);
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    padding: 24px 30px;
+    background-color: transparent;
+    background-image: url("../images/horizon-dialog-bg.png");
+    background-position: center center;
+    background-size: 100% 100%;
+    background-origin: border-box;
+    background-clip: border-box;
+    background-repeat: no-repeat;
+    overflow: hidden
+}
+
+.timeout-card > img {
+    width: 145px;
+    height: 145px;
+    object-fit: contain;
+    object-position: bottom;
+    image-rendering: pixelated
+}
+
+.timeout-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    max-width: 250px;
+    text-align: center
+}
+
+.timeout-copy h2 {
+    margin: 0;
+    color: #fff;
+    font-size: 26px
+}
+
+.timeout-copy p {
+    margin: 0;
+    color: #c4d7da;
+    line-height: 1.35;
+    font-size: 13px
+}
+
+.timeout-copy .go {
+    margin-top: 4px
+}
+
 @media(max-width:950px) {
     .ui {
         width: min(640px, 68vw);
