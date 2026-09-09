@@ -273,7 +273,14 @@ input {
 }
 
 .lobby-image {
-    background: #082d3a
+    background-color: #082d3a;
+    background-image: url("../images/main-bg.png");
+    background-position: top center;
+    background-size: 100% auto;
+    background-origin: border-box;
+    background-clip: border-box;
+    background-repeat: no-repeat;
+
 }
 
 .lobby-image img {
