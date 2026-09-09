@@ -35,13 +35,18 @@ function positionBubbles(){
     const character=scene.querySelector(`.char.${bubble.classList.contains('left')?'left':'right'}`);
     const handoff=scene.querySelector('.ending-handoff');
     if(!character&&!handoff)return;
-    const characterRect=character?character.getBoundingClientRect():(()=>{const rect=handoff.getBoundingClientRect();return {left:rect.left+rect.width*.58,top:rect.top+rect.height*.08,width:rect.width*.36,height:rect.height*.7}})();
     const bubbleWidth=bubble.offsetWidth;
     const bubbleHeight=bubble.offsetHeight;
     const margin=8;
-    const centeredLeft=characterRect.left-gameRect.left+(characterRect.width-bubbleWidth)/2;
+    const characterRect=character?character.getBoundingClientRect():null;
+    const handoffRect=handoff?.querySelector('.handoff_img')?.getBoundingClientRect();
+    const centeredLeft=handoffRect
+      ? handoffRect.left-gameRect.left+handoffRect.width*.60-bubbleWidth/2
+      : characterRect.left-gameRect.left+(characterRect.width-bubbleWidth)/2;
     const left=Math.max(margin,Math.min(centeredLeft,gameRect.width-bubbleWidth-margin));
-    const preferredTop=characterRect.top-gameRect.top-bubbleHeight-10;
+    const preferredTop=handoffRect
+      ? handoffRect.top-gameRect.top+handoffRect.height*.08-bubbleHeight
+      : characterRect.top-gameRect.top-bubbleHeight-10;
     const visibleHeight=Math.min(gameRect.height,window.innerHeight);
     const top=Math.max(margin,Math.min(preferredTop,visibleHeight-bubbleHeight-margin));
     bubble.style.left=`${left}px`;
@@ -61,13 +66,14 @@ function typeBubble(bubble,run){
   };
   typeNext();
 }
-function startTypewriter(){
+function startTypewriter(delay=300){
   const run=typewriterRun;
   document.querySelectorAll('#scene .bubble').forEach(bubble=>{
-    typewriterTimers.push(setTimeout(()=>typeBubble(bubble,run),300));
+    typewriterTimers.push(setTimeout(()=>typeBubble(bubble,run),delay));
   });
 }
-function addBubbles(){const scene=$('scene');stopTypewriter();scene.querySelectorAll('.bubble').forEach(element=>element.remove());const templates=[...bubbleData.querySelectorAll(`template[data-screen="${S.screen}"]`)].filter(template=>!template.dataset.choice||Number(template.dataset.choice)===S.choice);templates.forEach(template=>scene.append(template.content.cloneNode(true)));scene.querySelectorAll('.bubble').forEach(bubble=>{if(S.screen===27)bubble.classList.add('ending-bubble');bubble.dataset.typewriterText=bubble.textContent.trim();bubble.textContent=''});requestAnimationFrame(()=>{positionBubbles();startTypewriter()});}
+function revealEndingBubble(){const scene=$('scene');scene.querySelectorAll('.ending-bubble').forEach(bubble=>{bubble.classList.remove('ending-pending');void bubble.offsetWidth});positionBubbles();startTypewriter(0);}
+function addBubbles(){const scene=$('scene');stopTypewriter();scene.querySelectorAll('.bubble').forEach(element=>element.remove());const templates=[...bubbleData.querySelectorAll(`template[data-screen="${S.screen}"]`)].filter(template=>!template.dataset.choice||Number(template.dataset.choice)===S.choice);templates.forEach(template=>scene.append(template.content.cloneNode(true)));scene.querySelectorAll('.bubble').forEach(bubble=>{if(S.screen===27)bubble.classList.add('ending-bubble','ending-pending');bubble.dataset.typewriterText=bubble.textContent.trim();bubble.textContent=''});requestAnimationFrame(()=>{positionBubbles();const endingCharacter=scene.querySelector('.handoff-char-2');if(endingCharacter){endingCharacter.addEventListener('animationend',revealEndingBubble,{once:true})}else{startTypewriter()}});}
 function bindScreen(root){
   root.querySelectorAll('[data-choice]').forEach(element=>element.addEventListener('click',event=>{event.preventDefault();pick(Number(element.dataset.choice))}));
   root.querySelectorAll('[data-next]').forEach(element=>element.addEventListener('click',()=>{go(Number(element.dataset.next));if(element.dataset.startTimer)startTimer(Number(element.dataset.startTimer))}));
