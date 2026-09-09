@@ -1333,6 +1333,18 @@ figure.mock {
     margin-top: 4px
 }
 
+.asset-loader { position: absolute; inset: 0; z-index: 60; display: grid; place-items: center; background: #031a24 url("../images/main-bg.png") center / cover no-repeat; image-rendering: pixelated }
+.asset-loader-card { width: min(360px, 82vw); padding: 28px 30px; text-align: center; color: #fff; background: #062a3d; border: 3px solid var(--lime); box-shadow: 6px 6px 0 #000 }
+.asset-loader-arrows { display: flex; justify-content: center; gap: 5px; margin-bottom: 12px }
+.asset-loader-arrows span { width: 10px; height: 10px; border-left: 3px solid var(--lime); border-top: 3px solid var(--lime); transform: rotate(45deg); animation: loader-arrow .8s steps(3, end) infinite }
+.asset-loader-arrows span:nth-child(2) { animation-delay: .15s }
+.asset-loader-arrows span:nth-child(3) { animation-delay: .3s }
+@keyframes loader-arrow { 0%, 100% { opacity: .25; transform: translateY(5px) rotate(45deg) } 50% { opacity: 1; transform: translateY(0) rotate(45deg) } }
+.asset-loader-title { font-size: 22px; font-weight: 900; margin-bottom: 16px }
+.asset-loader-bar { height: 14px; padding: 3px; background: #0d3342; border: 2px solid #71939b }
+.asset-loader-bar span { display: block; width: 0; height: 100%; background: linear-gradient(90deg, var(--lime2), var(--lime)); transition: width .12s steps(2, end) }
+.asset-loader-status { margin-top: 10px; color: #c4d7da; font-size: 12px }
+
 @media(max-width:950px) {
     .ui {
         width: min(640px, 68vw);

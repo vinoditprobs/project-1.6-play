@@ -5,8 +5,10 @@ const bubbleData=$('bubble-data');
 const cloneTemplate=(root,selector)=>root.querySelector(selector).content.cloneNode(true);
 let typewriterRun=0;
 let typewriterTimers=[];
+const preloadAssets=['images/main-bg.png','images/lift-lobby-bg-door-shadow.png','images/lift-lobby-bg-without-door.png','images/lift-lobby-bg-left-door.png','images/lift-lobby-bg-right-door.png','images/lift-lobby-bg.png','images/lift-inside-background.png','images/character-1.png','images/character-1-thinking.png','images/character-1-confident.png','images/character-1-sad.png','images/character-1-happy.png','images/character-2.png','images/character-2-good-look.png','images/character-2-being-late.png','images/character-2-not-happy.png','images/character-2-doubt.png','images/character-2-impresed.png','images/character-2-think.png','images/coin.png','images/timer.png','images/stars.png','images/times-up.png','images/achievement.png','images/ending-handoff.png','images/together-char-1.png','images/together-char-2.png','images/dialog-bg.svg','images/horizon-dialog-bg.svg','images/mock-bg.svg','images/number-coin-bg.svg','images/number-coin-highlighted-bg.svg','images/speech-bubble.svg','images/wave-border.png','images/mock-bottles.png','images/mock-brochure.png','images/mock-laptop.png','images/mock-pack.png','images/mock-phoneNew.png','images/mock-phoneOld.png','images/mock-poster.png'];
 function timerText(){return `${S.time} seconds`}
 function startTimer(seconds){clearInterval(S.timer);S.time=seconds;S.running=true;updateStats();S.timer=setInterval(()=>{S.time--;updateStats();if(S.time<=0){clearInterval(S.timer);S.running=false;if(S.screen<27)showTimeoutPopup()}},1000)}
+function preloadGameAssets(){const progress=$('assetLoaderProgress'),status=$('assetLoaderStatus'),startedAt=performance.now(),minimumVisibleMs=550;let loaded=0;const update=()=>{loaded++;const percent=Math.round(loaded/preloadAssets.length*100);progress.style.width=`${percent}%`;status.textContent=`Loading assets ${loaded} / ${preloadAssets.length}`};return Promise.all(preloadAssets.map(source=>new Promise(resolve=>{const image=new Image();image.onload=()=>{update();resolve()};image.onerror=()=>{update();resolve()};image.src=source}))).then(()=>new Promise(resolve=>setTimeout(resolve,Math.max(0,minimumVisibleMs-(performance.now()-startedAt)))).then(()=>{$('assetLoader').classList.add('hide');S.introVisible=false;setTimeout(()=>{if(!S.started){S.introVisible=true;render()}},3000)}))}
 function showTimeoutPopup(){$('timeoutPopup').classList.remove('hide');$('retryTimeout').focus()}
 function retryTimeout(){clearInterval(S.timer);S.screen=1;S.coins=0;S.choice=null;S.time=30;S.started=true;S.introVisible=true;$('timeoutPopup').classList.add('hide');render()}
 function money(n=S.coins){const fragment=cloneTemplate(document,'#coin');fragment.append(String(n));return fragment}
@@ -94,4 +96,4 @@ $('begin').onclick=()=>{S.started=true;S.introVisible=true;render()};
 $('retryTimeout').onclick=retryTimeout;
 window.addEventListener('resize',positionBubbles);
 render();
-setTimeout(()=>{if(!S.started){S.introVisible=true;render()}},3000);
+preloadGameAssets();
