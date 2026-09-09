@@ -980,34 +980,23 @@ figure.mock {
     color: #fff
 }
 
-.ending-handoff,
-.ending-achievement-screen {
+.ending-screen {
     position: absolute;
     inset: 0;
     z-index: 8;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
+    pointer-events: none;
+    overflow: hidden
+}
+
+.ending-screen .content_area {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
     pointer-events: none
 }
 
-.ending-handoff img {
-    width: min(520px, 58vw);
-    height: auto;
-    max-height: 72vh;
-    object-fit: contain;
-    image-rendering: pixelated
-}
-
-.ending-handoff .go {
-    pointer-events: auto;
-    margin-bottom: 20px
-}
-
-.ending-achievement-screen {
-    justify-content: flex-end;
-    overflow: hidden
+.ending-screen .content_area > * {
+    pointer-events: auto
 }
 
 .ending-overlay {
@@ -1017,9 +1006,52 @@ figure.mock {
     z-index: 0
 }
 
-.ending-achievement-screen > img {
+.ending-achievement-screen .ending-overlay{
+    backdrop-filter: blur(8px);
+}
+
+.ending-handoff .handoff_img {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    margin: 0;
+    z-index: 1
+}
+
+.ending-handoff .handoff_img img {
+    display: block;
+    width: min(520px, 58vw);
+    height: auto;
+    max-height: 72vh;
+    object-fit: contain;
+    image-rendering: pixelated
+}
+
+.ending-handoff .go {
+    position: absolute;
+    right: 24px;
+    bottom: 22px;
+    z-index: 3;
+    margin: 0
+}
+
+.ending-achievement-screen {
+    pointer-events: none
+}
+
+.ending-achievement-screen .achievement {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    margin: 0;
+    z-index: 1
+}
+
+.ending-achievement-screen .achievement img {
+    display: block;
     position: relative;
-    z-index: 1;
     width: min(270px, 34vw);
     height: auto;
     object-fit: contain;
@@ -1038,7 +1070,8 @@ figure.mock {
     align-items: center;
     gap: 10px;
     color: #fff;
-    z-index: 2
+    z-index: 3;
+    pointer-events: auto
 }
 
 .ending-achievement-copy .title {

@@ -324,18 +324,26 @@
                 seamless way to discover and buy from you.</div>
             <figure class="mock"><img src="images/mock-laptop.png" width="130" height="130" alt="New Website"><figcaption>New Website</figcaption></figure><button class="go" data-next="27">Next</button>
         </template><template data-screen="27">
-            <div data-ending-content class="ending-handoff">
-                <img src="images/ending-handoff.png" width="520" height="420" alt="Founder and Riya exchanging a visiting card">
-                <button class="go" data-next="28">Next</button>
+            <div data-ending-content class="ending-screen ending-handoff">
+                <div class="ending-overlay"></div>
+                                <div class="content_area">
+                                    <figure class="handoff_img"><img src="images/ending-handoff.png" width="520" height="420" alt="Founder and Riya exchanging a visiting card"></figure>
+                                    <button class="go" data-next="28">Next</button>
+
+                </div>
             </div>
         </template><template data-screen="28">
-            <div data-ending-content class="ending-achievement-screen">
+            <div data-ending-content class="ending-screen ending-achievement-screen">
                 <div class="ending-overlay"></div>
-                <img src="images/character-1.png" width="270" height="410" alt="Founder celebrating">
+                <div class="content_area">
+
                 <div class="ending-achievement-copy">
                     <div class="title">Game Over!</div>
                     <img class="completion-stars" src="images/stars.png" width="110" height="42" alt="Achievement stars">
                     <button class="go" data-action="restart">Play Again</button>
+                </div>
+                <figure class="achievement"><img src="images/achievement.png" width="270" height="410" alt="Founder celebrating"></figure>
+
                 </div>
             </div>
         </template>
