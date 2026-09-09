@@ -289,13 +289,17 @@ input {
     position: relative;
     
 }
-.lift_lobby .without-door{
+.lift_lobby .without-door, .lift_lobby .door-shadow{
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         z-index: 4;
+    }
+    .lift_lobby .door-shadow{
+        z-index: 5;
+            mix-blend-mode: soft-light;
     }
 .lift_lobby .doors{
         display: inline-block;
