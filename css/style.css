@@ -364,6 +364,12 @@ input {
     border-radius: 18px 18px 16px 16px
 }
 
+.ending-bubble {
+    left: 58%;
+    right: auto;
+    top: 8%;
+}
+
 /* center UI */
 .ui {
     position: absolute;
@@ -962,6 +968,92 @@ figure.mock {
 
 .start-content .copy {
     max-width: 500px
+}
+
+.end-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 180px;
+    color: #fff
+}
+
+.ending-handoff,
+.ending-achievement-screen {
+    position: absolute;
+    inset: 0;
+    z-index: 8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    pointer-events: none
+}
+
+.ending-handoff img {
+    width: min(520px, 58vw);
+    height: auto;
+    max-height: 72vh;
+    object-fit: contain;
+    image-rendering: pixelated
+}
+
+.ending-handoff .go {
+    pointer-events: auto;
+    margin-bottom: 20px
+}
+
+.ending-achievement-screen {
+    justify-content: flex-end;
+    overflow: hidden
+}
+
+.ending-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(1, 15, 20, .58);
+    z-index: 0
+}
+
+.ending-achievement-screen > img {
+    position: relative;
+    z-index: 1;
+    width: min(270px, 34vw);
+    height: auto;
+    object-fit: contain;
+    image-rendering: pixelated;
+    animation: achievement-jump .8s steps(3, end) infinite;
+    transform-origin: bottom center
+}
+
+.ending-achievement-copy {
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    z-index: 2
+}
+
+.ending-achievement-copy .title {
+    font-size: 30px;
+    text-shadow: 3px 3px 0 #111
+}
+
+.ending-achievement-copy .go {
+    margin-top: 0;
+    pointer-events: auto
+}
+
+@keyframes achievement-jump {
+    0%, 100% { transform: translateY(0) }
+    45% { transform: translateY(-22px) }
 }
 
 .topNote {

@@ -45,6 +45,11 @@
                         keep an eye on the timer.</p><button class="go" id="begin">Start Game</button>
                 </div>
                 <div id="startContent" class="start-content"></div>
+                <div id="endContent" class="end-content">
+                    <div class="title">Game Over!</div>
+                    <img class="completion-stars" src="images/stars.png" width="110" height="42" alt="Achievement stars">
+                    <button class="go" data-action="restart">Play Again</button>
+                </div>
             </div>
         </div>
     </div>
@@ -112,8 +117,7 @@
             <div class="bubble right round">You’ve built more than a product - you’ve built a brand. That’s exactly what
                 investors want to see.</div>
         </template><template data-screen="27">
-            <div class="bubble left round">We did it!</div>
-            <div class="bubble right round">Here’s my card. I’d love to continue this conversation. Let’s schedule a
+            <div class="bubble right round">Here's my card. I'd love to continue this conversation. Let's schedule a
                 meeting at my office.</div>
         </template>
     </div>
@@ -320,12 +324,20 @@
                 seamless way to discover and buy from you.</div>
             <figure class="mock"><img src="images/mock-laptop.png" width="130" height="130" alt="New Website"><figcaption>New Website</figcaption></figure><button class="go" data-next="27">Next</button>
         </template><template data-screen="27">
-            <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1.png" width="204" height="402" alt="Character 1"></div>
-            <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
-            <div class="title">Game Over!</div>
-            <div class="copy">You built more than a product — you built a brand and earned Riya’s trust.</div>
-            <img class="completion-stars" src="images/stars.png" alt="" style="width:110px;height:42px;margin:14px"><button class="go"
-                data-action="restart">Play Again</button>
+            <div data-ending-content class="ending-handoff">
+                <img src="images/ending-handoff.png" width="520" height="420" alt="Founder and Riya exchanging a visiting card">
+                <button class="go" data-next="28">Next</button>
+            </div>
+        </template><template data-screen="28">
+            <div data-ending-content class="ending-achievement-screen">
+                <div class="ending-overlay"></div>
+                <img src="images/character-1.png" width="270" height="410" alt="Founder celebrating">
+                <div class="ending-achievement-copy">
+                    <div class="title">Game Over!</div>
+                    <img class="completion-stars" src="images/stars.png" width="110" height="42" alt="Achievement stars">
+                    <button class="go" data-action="restart">Play Again</button>
+                </div>
+            </div>
         </template>
         +
     </div>
