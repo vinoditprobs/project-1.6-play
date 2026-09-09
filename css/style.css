@@ -246,7 +246,8 @@ input {
     width: 270px;
     height: 410px;
     z-index: 6;
-    pointer-events: none
+    pointer-events: none;
+    z-index: 99;
 }
 
 .char.left {
@@ -316,7 +317,8 @@ input {
     overflow: hidden;
     transform-origin: 50% 88%;
     animation: bubble-pop .3s steps(3, end) both;
-    image-rendering: pixelated
+    image-rendering: pixelated;
+    z-index: 99;
 }
 
 @keyframes bubble-pop {
@@ -942,6 +944,24 @@ figure.mock {
 .start-card p {
     color: #c4d7da;
     line-height: 1.5
+}
+
+.start-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 180px;
+    color: #fff
+}
+
+.start-content .title {
+    font-size: 22px
+}
+
+.start-content .copy {
+    max-width: 500px
 }
 
 .topNote {

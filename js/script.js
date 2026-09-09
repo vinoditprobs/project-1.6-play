@@ -1,4 +1,4 @@
-const S={screen:1,choice:null,coins:0,time:30,running:false,timer:null,form:null,branch:{} };
+const S={screen:1,choice:null,coins:0,time:30,running:false,timer:null,form:null,branch:{},started:false,introVisible:false };
 const $=id=>document.getElementById(id);
 const screenData=$('screen-data');
 const bubbleData=$('bubble-data');
@@ -61,12 +61,12 @@ function startTypewriter(){
   });
 }
 function addBubbles(){const scene=$('scene');stopTypewriter();scene.querySelectorAll('.bubble').forEach(element=>element.remove());const templates=[...bubbleData.querySelectorAll(`template[data-screen="${S.screen}"]`)].filter(template=>!template.dataset.choice||Number(template.dataset.choice)===S.choice);templates.forEach(template=>scene.append(template.content.cloneNode(true)));scene.querySelectorAll('.bubble').forEach(bubble=>{bubble.dataset.typewriterText=bubble.textContent.trim();bubble.textContent=''});requestAnimationFrame(()=>{positionBubbles();startTypewriter()});}
-function bindScreen(){
-  $('screen').querySelectorAll('[data-choice]').forEach(element=>element.addEventListener('click',event=>{event.preventDefault();pick(Number(element.dataset.choice))}));
-  $('screen').querySelectorAll('[data-next]').forEach(element=>element.addEventListener('click',()=>{go(Number(element.dataset.next));if(element.dataset.startTimer)startTimer(Number(element.dataset.startTimer))}));
-  $('screen').querySelectorAll('[data-action]').forEach(element=>element.addEventListener('click',()=>window[element.dataset.action]()));
+function bindScreen(root){
+  root.querySelectorAll('[data-choice]').forEach(element=>element.addEventListener('click',event=>{event.preventDefault();pick(Number(element.dataset.choice))}));
+  root.querySelectorAll('[data-next]').forEach(element=>element.addEventListener('click',()=>{go(Number(element.dataset.next));if(element.dataset.startTimer)startTimer(Number(element.dataset.startTimer))}));
+  root.querySelectorAll('[data-action]').forEach(element=>element.addEventListener('click',()=>window[element.dataset.action]()));
 }
-function render(){clearInterval(S.timer);S.running=false;S.screen=Math.max(1,Math.min(27,S.screen));sceneFor(S.screen);$('screenContent').replaceChildren(screenContent());$('screen').scrollTop=0;$('screen').querySelectorAll('.choice[data-choice]').forEach(element=>{const selected=Number(element.dataset.choice)===S.choice;element.classList.toggle('selected',selected);element.setAttribute('aria-pressed',selected?'true':'false')});bindScreen();$('stage').textContent=`SCREEN ${S.screen} / 27`;$('currentFloor').textContent=currentFloor();document.querySelectorAll('.floor-badge').forEach((element,index)=>element.classList.toggle('active',index===currentFloor()));updateStats();addBubbles();if(S.screen===4||S.screen===5)startTimer(30);else if(S.screen===10)startTimer(60);else if(S.screen>=11&&S.screen<=26)startTimer(Math.max(S.time||60,1));}
+function render(){clearInterval(S.timer);S.running=false;S.screen=Math.max(1,Math.min(27,S.screen));const early=S.started&&S.screen<=4;const contentRoot=early?$('startContent'):$('screenContent');sceneFor(S.screen);contentRoot.replaceChildren(screenContent());if(early){$('screenContent').replaceChildren();}else{$('startContent').replaceChildren();$('screen').scrollTop=0}$('ui').classList.toggle('hide',!S.started||early);$('start').classList.toggle('hide',!S.introVisible||S.started&&!early);$('start-card').classList.toggle('hide',!S.started&&!S.introVisible);$('startIntro').classList.toggle('hide',S.started);$('startContent').classList.toggle('hide',!S.started||!S.introVisible);$('stage').textContent=`SCREEN ${S.screen} / 27`;$('currentFloor').textContent=currentFloor();document.querySelectorAll('.floor-badge').forEach((element,index)=>element.classList.toggle('active',index===currentFloor()));const activeRoot=early?$('startContent'):$('screenContent');activeRoot.querySelectorAll('.choice[data-choice]').forEach(element=>{const selected=Number(element.dataset.choice)===S.choice;element.classList.toggle('selected',selected);element.setAttribute('aria-pressed',selected?'true':'false')});bindScreen(activeRoot);updateStats();addBubbles();if(S.screen===4||S.screen===5)startTimer(30);else if(S.screen===10)startTimer(60);else if(S.screen>=11&&S.screen<=26)startTimer(Math.max(S.time||60,1));}
 function go(n){S.screen=n;S.choice=null;render()}
 function pick(i){S.choice=i;$('screen').querySelectorAll('.choice[data-choice]').forEach(element=>{const selected=Number(element.dataset.choice)===i;element.classList.toggle('selected',selected);element.setAttribute('aria-pressed',selected?'true':'false')});}
 function quizUSP(){if(S.choice===null)return;if(S.choice===1){S.screen=9;render()}else{S.screen=8;render()}}
@@ -76,6 +76,7 @@ function claim(){const n=$('name').value.trim(),e=$('email').value.trim(),p=$('p
 function brandChoice(){if(S.choice===null)return;if(S.choice===0){S.screen=21;render()}else{S.coins=Math.max(0,S.coins-30);S.screen=21;render()}}
 function websiteChoice(){if(S.choice===null)return;if(S.choice===1){S.screen=24;render()}else{S.coins=Math.max(0,S.coins-40);S.screen=26;render()}}
 function restart(){clearInterval(S.timer);S.screen=1;S.choice=null;S.coins=0;S.time=30;render()}
-$('begin').onclick=()=>{$('start').classList.add('hide');render()};
+$('begin').onclick=()=>{S.started=true;S.introVisible=true;render()};
 window.addEventListener('resize',positionBubbles);
 render();
+setTimeout(()=>{if(!S.started){S.introVisible=true;render()}},3000);

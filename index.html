@@ -12,7 +12,7 @@
     <div class="game" id="game">
         <div id="scene"></div>
         <!-- <div class="topNote">PROJECT 1.6 • THE ELEVATOR PITCH</div> -->
-        <div class="ui">
+        <div class="ui" id="ui">
             <section class="panel">
                 <div class="stage" id="stage"></div>
                 <div class="screen" id="screen">
@@ -37,11 +37,14 @@
                 </div>
             </section>
         </div>
-        <div class="start" id="start">
-            <div class="start-card">
-                <h1>THE SKINCARE LIFT</h1>
-                <p>Pitch your skincare brand to Riya before her floor arrives. Choose carefully, manage your coins and
-                    keep an eye on the timer.</p><button class="go" id="begin">Start Game</button>
+        <div class="start hide" id="start">
+            <div class="start-card hide" id="start-card">
+                <div id="startIntro">
+                    <h1>THE SKINCARE LIFT</h1>
+                    <p>Pitch your skincare brand to Riya before her floor arrives. Choose carefully, manage your coins and
+                        keep an eye on the timer.</p><button class="go" id="begin">Start Game</button>
+                </div>
+                <div id="startContent" class="start-content"></div>
             </div>
         </div>
     </div>
