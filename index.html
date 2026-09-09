@@ -67,7 +67,16 @@
 
     <!-- Scene and character templates -->
     <template id="scene-lobby">
-        <div class="lobby lobby-image"><img src="images/lift-lobby-background.png" width="1440" height="800" alt="Lift lobby background"></div>
+        <div class="lobby lobby-image">
+            <div class="lift_lobby" >
+            <img class="without-door" src="images/lift-lobby-bg-without-door.png" width="1440" height="800" alt="Lift lobby without door">
+            <span class="doors" >
+                <img class="left-door" src="images/lift-lobby-bg-left-door.png" width="1440" height="800" alt="Left door">
+                <img class="right-door" src="images/lift-lobby-bg-right-door.png" width="1440" height="800" alt="Right Door">
+            </span>
+            <img src="images/lift-lobby-bg.png" width="1440" height="800" alt="Lift lobby background">
+            </div>
+        </div>
     </template>
     <template id="scene-inside">
         <div class="inside lift-inside"><img src="images/lift-inside-background.png" width="1440" height="800" alt="Lift Inside background"></div>

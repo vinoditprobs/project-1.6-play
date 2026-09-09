@@ -19,7 +19,7 @@ function updateStats(){
   if(screenTimer)screenTimer.textContent=timerText();
 }
 function currentFloor(){return S.screen>=22?3:S.screen>=18?2:S.screen>=10?1:0}
-function sceneFor(n){const scene=$('scene');scene.replaceChildren(cloneTemplate(document,n>4&&n<27?'#scene-inside':'#scene-lobby'));}
+function sceneFor(n){const scene=$('scene');scene.replaceChildren(cloneTemplate(document,n>4&&n<27?'#scene-inside':'#scene-lobby'));const lobby=scene.querySelector('.lobby-image');if(lobby){const image=lobby.querySelector('.without-door')||lobby.querySelector('img');const openLobby=()=>lobby.classList.add('close-door');if(image?.complete)openLobby();else image?.addEventListener('load',openLobby,{once:true});}}
 function screenTemplate(n){const choices=screenData.querySelectorAll(`template[data-screen="${n}"]`);return [...choices].find(template=>!template.dataset.choice||Number(template.dataset.choice)===S.choice)||choices[0];}
 function screenContent(){
   const content=screenTemplate(S.screen).content.cloneNode(true);
