@@ -1472,3 +1472,18 @@ figure.mock {
     }
 
 }
+
+.lobby-arrival {
+    background: #082d3a;
+    animation: lobby-arrival-in .9s ease-out both
+}
+
+@keyframes lobby-arrival-in {
+    from {
+        opacity: .15
+    }
+
+    to {
+        opacity: 1
+    }
+}
