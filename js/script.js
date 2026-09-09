@@ -14,7 +14,7 @@ function updateStats(){
   const leftStat=$('leftStat'),rightStat=$('rightStat');
   leftStat.replaceChildren();rightStat.replaceChildren();
   if(S.running){const timer=document.createElement('b');timer.append(timerText());leftStat.append(cloneTemplate(document,'#timer-icon'),' ',timer)}
-  if(S.coins>=0){rightStat.append('Total coins: ',money())}
+  if(S.screen>=15&&S.coins>=0){rightStat.append('Total coins: ',money())}
   const screenTimer=$('screenTimer');
   if(screenTimer)screenTimer.textContent=timerText();
 }
