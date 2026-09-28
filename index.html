@@ -41,8 +41,10 @@
             <div class="start-card hide" id="start-card">
                 <div id="startIntro">
                     <h1>THE SKINCARE LIFT</h1>
-                    <p>Pitch your skincare brand to Riya before her floor arrives. Choose carefully, manage your coins and
-                        keep an eye on the timer.</p><button class="go" id="begin">Start Game</button>
+                    <h4>HELLO, GAMER 👋</h4>
+                    <p>Plot twist: you're a skincare founder.<br>
+You've got one shot to impress your dream investor. Inside an Elevator! 
+</p><button class="go" id="begin">Start Game</button>
                 </div>
                 <div id="startContent" class="start-content"></div>
                 <div id="endContent" class="end-content">
@@ -94,18 +96,18 @@
     <template id="timer-icon"><img class="timer-icon" src="images/timer.png" width="18" height="18" alt=""></template>
     <div hidden id="bubble-data">
         <template data-screen="2">
-            <div class="bubble left round">You are the founder of a new skincare brand.
-                SKINNS</div>
+            <div class="bubble left round">Okay, you got this.<br>
+SKINNS is 🔥. Now let's nail the pitch.
+</div>
         </template><template data-screen="3">
-            <div class="bubble right round">This is Riya, your potential investor.
-                And a beauty retail store owner.</div>
+            <div class="bubble right round">So… SKINNS.<br>Give me a reason to care. 👀</div>
         </template>
         <template data-screen="6">
             <div class="bubble left round">Hey Riya,
                 Do you have minute?</div>
             <div class="bubble right round">Hello, I’m in a rush but tell me.</div>
         </template><template data-screen="7">
-            <div class="bubble left round">Make your USP clear.</div>
+            <div class="bubble left round">I built a skincare brand I think you’re going to love. Want to hear the pitch? </div>
             <div class="bubble right round">I’m listening.</div>
         </template>
         <template data-screen="8">
@@ -154,9 +156,8 @@
     <!-- Screen steps: maintain game content here. -->
     <div hidden id="screen-data">
         <template data-screen="1">
-            <div class="title">The Elevator Pitch</div>
-            <div class="copy">You have a new skincare brand.
-                Your next big opportunity is waiting on the other side of the doors.</div><button class="go"
+            <div class="title">The Elevator Pitch (Literally!)</div>
+            <div class="copy">Keep an eye on the timer and manage your coins! And get ready to meet Riya, your potential investor.</div><button class="go"
                 data-next="2">Enter Lift</button>
         </template>
         <template data-screen="2">
@@ -168,7 +169,7 @@
         <template data-screen="3">
             <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">Meet Riya</div>
-            <div class="copy">This is Riya, your potential investor.<br>And a beauty retail store owner.</div><button
+            <div class="copy">This is Riya, your potential investor.<br>A Serial Beauty Retail Entrepreneur.</div><button
                 class="go" data-next="4">Next</button>
         </template>
         <template data-screen="4">
@@ -194,10 +195,7 @@
             <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="sub">(This is your USP)</div>
             <div class="title">Pick the one thing that sets it apart.</div>
-            <div class="choice-row"><button class="choice" data-choice="0">I built a skincare brand for working women
-                    who are tired of products that overpromise, every formula we sell has clinical proof it
-                    works.</button><button class="choice" data-choice="1">I built a skincare brand for working women who
-                    are tired of overpromised products want skincare that actually works.</button></div><button
+            <div class="choice-row"><button class="choice" data-choice="0">I built a skincare brand for urban women who are looking for something unique to add to their skin care routine.</button><button class="choice" data-choice="1">I built a skincare brand for millennial working women who are tired of products that overpromise. Every formula we sell has clinical proof that it works.</button></div><button
                 class="go" data-action="quizUSP">GO</button>
         </template>
         <template data-screen="8">
@@ -226,16 +224,15 @@
             <div class="choice-row"><button class="choice" data-choice="0">
                     <div class="selected_mock"><figure class="mock"><img src="images/mock-bottles.png" width="130" height="130" alt="Multiple blank bottle mockups"><figcaption>Multiple blank bottle mockups</figcaption></figure></div>
                 </button><button class="choice" data-choice="1">
-                    <div class="selected_mock"><figure class="mock"><img src="images/mock-poster.png" width="130" height="130" alt="Mega Sale poster"><figcaption>Mega Sale poster</figcaption></figure></div>
+                    <div class="selected_mock"><figure class="mock"><img src="images/box-pack.png" width="130" height="130" alt="Mega Sale poster"><figcaption>Mega Sale poster</figcaption></figure></div>
                 </button></div><button class="go" data-action="itemChoice">GO</button>
         </template>
         <template data-screen="12">
             <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1-sad.png" width="204" height="402" alt="Character 1"></div>
             <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2-doubt.png" width="220" height="360" alt="Character 2"></div>
-            <div class="title">Your poster creates awareness...</div>
-            <figure class="mock"><img src="images/mock-poster.png" width="130" height="130" alt="Mega Sale poster"><figcaption>Mega Sale poster</figcaption></figure>
-            <div class="copy">A Poster create awareness, But investors need to experience your product, let showcase it
-                with professional packaging first</div><button class="go" data-next="11">Go Back</button>
+            <div class="title">Ohh wait… will your packaging impress both?</div>
+            <figure class="mock"><img src="images/box-pack.png" width="130" height="130" alt="Mega Sale poster"><figcaption>Mega Sale poster</figcaption></figure>
+            <div class="copy">Win the customer. Impress the investor. Start with packaging that does both. Get it designed by Project 1.6.</div><button class="go" data-next="14">Select</button>
         </template><template data-screen="13">
             <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1-thinking.png" width="204" height="402" alt="Character 1"></div>
             <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2-not-happy.png" width="220" height="360" alt="Character 2"></div>
@@ -381,12 +378,8 @@
                 </div>
             </div>
         </template>
-        +
     </div>
-    +
     <script src="js/script.js"></script>
-    +
 </body>
-+
 
 </html>
