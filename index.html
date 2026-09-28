@@ -10,6 +10,12 @@
 
 <body>
     <div class="game" id="game">
+        <button class="sound-toggle" id="soundToggle" type="button" aria-label="Mute sound" aria-pressed="true">
+            <span class="sound-icon" aria-hidden="true">🔊</span>
+            <span class="sr-only">Sound on</span>
+        </button>
+        <audio id="backgroundMusic" src="media/lift-bg-sound.m4a" loop preload="auto"></audio>
+        <audio id="doorCloseSound" src="media/door-close.m4a" preload="auto"></audio>
         <div id="scene"></div>
         <!-- <div class="topNote">PROJECT 1.6 • THE ELEVATOR PITCH</div> -->
         <div class="ui" id="ui">

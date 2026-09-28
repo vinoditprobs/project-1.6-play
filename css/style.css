@@ -47,6 +47,49 @@ input {
     background: #083545
 }
 
+.sound-toggle {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 10000;
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    border: 2px solid rgba(245, 233, 200, .75);
+    border-radius: 50%;
+    background: rgba(6, 40, 58, .88);
+    color: var(--cream);
+    box-shadow: 0 4px 0 rgba(0, 0, 0, .2);
+    cursor: pointer;
+    font-size: 19px;
+    line-height: 1;
+}
+
+.sound-toggle:hover,
+.sound-toggle:focus-visible {
+    background: var(--teal);
+    transform: translateY(-1px);
+}
+
+.sound-toggle:focus-visible {
+    outline: 3px solid var(--lime);
+    outline-offset: 3px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 .pixel {
     image-rendering: pixelated
 }
