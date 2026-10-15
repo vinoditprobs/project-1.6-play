@@ -67,7 +67,17 @@ function screenContent(){
   const content=screenTemplate(S.screen).content.cloneNode(true);
   const ending=content.querySelector('[data-ending-content]');
   if(ending){$('scene').append(ending);return document.createDocumentFragment()}
-  content.querySelectorAll('[data-scene-character]').forEach(character=>$('scene').append(character));
+  content.querySelectorAll('[data-scene-character]').forEach(character=>{
+    const group=document.createElement('div');
+    group.className='character-group';
+    const side=character.classList.contains('left')?'left':'right';
+    group.dataset.characterSide=side;
+    const characterWrapper=document.createElement('div');
+    characterWrapper.className=`char_wrapp ${side}_char`;
+    characterWrapper.append(character);
+    group.append(characterWrapper);
+    $('scene').append(group);
+  });
   return content
 }
 function positionBubbles(){
@@ -115,7 +125,7 @@ function startTypewriter(delay=300){
   });
 }
 function revealEndingBubble(){const scene=$('scene');scene.querySelectorAll('.ending-bubble').forEach(bubble=>{bubble.classList.remove('ending-pending');void bubble.offsetWidth});positionBubbles();startTypewriter(0);}
-function addBubbles(){const scene=$('scene');stopTypewriter();scene.querySelectorAll('.bubble').forEach(element=>element.remove());const templates=[...bubbleData.querySelectorAll(`template[data-screen="${S.screen}"]`)].filter(template=>!template.dataset.choice||Number(template.dataset.choice)===S.choice);templates.forEach(template=>scene.append(template.content.cloneNode(true)));scene.querySelectorAll('.bubble').forEach(bubble=>{if(S.screen===27)bubble.classList.add('ending-bubble','ending-pending');bubble.dataset.typewriterText=bubble.textContent.trim();bubble.textContent=''});requestAnimationFrame(()=>{positionBubbles();const endingCharacter=scene.querySelector('.handoff-char-2');if(endingCharacter){endingCharacter.addEventListener('animationend',revealEndingBubble,{once:true})}else{startTypewriter()}});}
+function addBubbles(){const scene=$('scene');stopTypewriter();scene.querySelectorAll('.bubble').forEach(element=>element.remove());const templates=[...bubbleData.querySelectorAll(`template[data-screen="${S.screen}"]`)].filter(template=>!template.dataset.choice||Number(template.dataset.choice)===S.choice);templates.forEach(template=>{const fragment=template.content.cloneNode(true);fragment.querySelectorAll('.bubble').forEach(bubble=>{const side=bubble.classList.contains('left')?'left':'right';const group=scene.querySelector(`.character-group[data-character-side="${side}"] .char_wrapp`)||scene.querySelector('.ending-handoff')||scene;group.append(bubble)})});scene.querySelectorAll('.bubble').forEach(bubble=>{if(S.screen===27)bubble.classList.add('ending-bubble','ending-pending');bubble.dataset.typewriterText=bubble.textContent.trim();bubble.textContent=''});requestAnimationFrame(()=>{positionBubbles();const endingCharacter=scene.querySelector('.handoff-char-2');if(endingCharacter){endingCharacter.addEventListener('animationend',revealEndingBubble,{once:true})}else{startTypewriter()}});}
 function bindScreen(root){
   root.querySelectorAll('[data-choice]').forEach(element=>element.addEventListener('click',event=>{event.preventDefault();pick(Number(element.dataset.choice))}));
   root.querySelectorAll('[data-next]').forEach(element=>element.addEventListener('click',()=>{go(Number(element.dataset.next));if(element.dataset.startTimer)startTimer(Number(element.dataset.startTimer))}));

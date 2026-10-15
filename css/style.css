@@ -300,6 +300,12 @@ input {
 }
 
 /* characters */
+.character-group {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
 .char {
     position: absolute;
     bottom: -4px;
