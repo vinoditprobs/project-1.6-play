@@ -1441,6 +1441,10 @@ figure.mock {
 }
 
 @media(max-width:720px) {
+    .lobby-image{
+        transform: scale(1.4);
+        transform-origin: top center;
+    }
     .ui {
         width: 80vw;
         min-width: 225px;
