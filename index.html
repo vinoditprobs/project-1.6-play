@@ -227,32 +227,34 @@ SKINNS is 🔥. Now let's nail the pitch.
             <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1-thinking.png" width="204" height="402" alt="Character 1"></div>
             <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2-being-late.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">Ohh no...she's rethinking.<br> Choose fast!</div>
-            <div class="choice-row"><button class="choice" data-choice="0">
-                    <div class="selected_mock"><figure class="mock"><img src="images/mock-bottles.png" width="130" height="130" alt="Multiple blank bottle mockups"><figcaption>Multiple blank bottle mockups</figcaption></figure></div>
-                </button><button class="choice" data-choice="1">
-                    <div class="selected_mock"><figure class="mock"><img src="images/box-pack.png" width="130" height="130" alt="Mega Sale poster"><figcaption>Mega Sale poster</figcaption></figure></div>
-                </button></div><button class="go" data-action="itemChoice">GO</button>
+            <div class="choice-row"><div class="choice-option"><button class="choice" data-choice="0">
+                    <div class="selected_mock"><figure class="mock"><img src="images/mock-bottles.png" width="130" height="130" alt="Tester Samples"></figure></div>
+                </button><div class="choice-caption">Tester Samples</div></div><div class="choice-option"><button class="choice" data-choice="1">
+                    <div class="selected_mock"><figure class="mock"><img src="images/box-pack.png" width="130" height="130" alt="Product Packaging"></figure></div>
+                </button><div class="choice-caption">Product Packaging</div></div></div><button class="go" data-action="itemChoice">GO</button>
         </template>
         <template data-screen="12">
             <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1-sad.png" width="204" height="402" alt="Character 1"></div>
             <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2-doubt.png" width="220" height="360" alt="Character 2"></div>
-            <div class="title">Ohh wait… will your packaging impress both?</div>
-            <figure class="mock"><img src="images/box-pack.png" width="130" height="130" alt="Mega Sale poster"><figcaption>Mega Sale poster</figcaption></figure>
-            <div class="copy">Win the customer. Impress the investor. Start with packaging that does both. Get it designed by Project 1.6.</div><button class="go" data-next="14">Select</button>
+            <div class="title">Ohh wait… is your packaging making the right impression?</div>
+            <figure class="mock"><img src="images/box-pack.png" width="130" height="130" alt="Product Packaging "><figcaption>Product Packaging</figcaption></figure>
+            <div class="copy">Your product deserves packaging that gets noticed by customers and investors. Let Project 1.6 design it right.</div><button class="go" data-next="14">Select</button>
         </template><template data-screen="13">
             <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1-thinking.png" width="204" height="402" alt="Character 1"></div>
             <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2-not-happy.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">Your sample doesn't have a package, quickly get it done by P1.6</div>
             <div class="selected_mock" >
-                <figure class="mock"><img src="images/mock-bottles.png" width="130" height="130" alt="Blank bottle mockups"><figcaption>Blank bottle mockups</figcaption></figure>
+                <figure class="mock"><img src="images/mock-bottles.png" width="130" height="130" alt="Tester Samples"></figure>
             </div>
+            <div class="choice-caption">Tester Samples</div>
             <button class="go" data-next="14">Next</button>
         </template>
         <template data-screen="14">
             <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1-confident.png" width="204" height="402" alt="Character 1"></div>
             <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2-impresed.png" width="220" height="360" alt="Character 2"></div>
-            <div class="title">Samples with packaging</div>
-            <figure class="mock"><img src="images/mock-pack.png" width="130" height="130" alt="Samples with packaging"><figcaption>Samples with packaging</figcaption></figure>
+            <div class="title">Product Packaging</div>
+            <figure class="mock"><img src="images/mock-pack.png" width="130" height="130" alt="Product Packaging"></figure>
+            <div class="choice-caption">Product Packaging</div>
             <div class="copy">Need 20 Coins to get this <img class="coin" src="images/coin.png" alt=""><span data-money="20">20</span></div>
             <button class="go" data-action="buyPack">Next</button>
         </template><template data-screen="15">
@@ -278,7 +280,7 @@ SKINNS is 🔥. Now let's nail the pitch.
             <div class="title">Good Job!</div>
             <div class="copy">A well-designed package builds trust, communicates quality, and creates a memorable first
                 impression.</div>
-            <figure class="mock"><img src="images/mock-pack.png" width="130" height="130" alt="Samples with packaging"><figcaption>Samples with packaging</figcaption></figure><button class="go" data-next="18">Next</button>
+            <figure class="mock"><img src="images/mock-pack.png" width="130" height="130" alt="Product Packaging"><figcaption>Product Packaging</figcaption></figure><button class="go" data-next="18">Next</button>
         </template><template data-screen="18">
             <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1.png" width="204" height="402" alt="Character 1"></div>
             <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
@@ -298,13 +300,13 @@ SKINNS is 🔥. Now let's nail the pitch.
             <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1-thinking.png" width="204" height="402" alt="Character 1"></div>
             <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">Get a brand language from Project 1.6</div>
-            <div class="choice-row"><button class="choice" data-choice="0">
-                    <div class="selected_mock"><figure class="mock"><img src="images/mock-phoneOld.png" width="130" height="130" alt="Show as it is"><figcaption>Show as it is</figcaption></figure></div>
+            <div class="choice-row"><div class="choice-option"><button class="choice" data-choice="0">
+                    <div class="selected_mock"><figure class="mock"><img src="images/mock-phoneOld.png" width="130" height="130" alt="Show as it is"></figure></div>
                     <div><img class="coin" src="images/coin.png" alt=""><span data-money="20">20</span></div>
-                </button><button class="choice" data-choice="1">
-                    <div class="selected_mock"><figure class="mock"><img src="images/mock-phoneNew.png" width="130" height="130" alt="Show new design"><figcaption>Show new design</figcaption></figure></div>
+                </button><div class="choice-caption">Show as it is</div></div><div class="choice-option"><button class="choice" data-choice="1">
+                    <div class="selected_mock"><figure class="mock"><img src="images/mock-phoneNew.png" width="130" height="130" alt="Show new design"></figure></div>
                     <div><img class="coin" src="images/coin.png" alt=""><span data-money="30">30</span></div>
-                </button></div><button class="go" data-action="brandChoice">Next</button>
+                </button><div class="choice-caption">Show new design</div></div></div><button class="go" data-action="brandChoice">Next</button>
         </template>
         <template data-screen="21" data-choice="0">
             <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1-thinking.png" width="204" height="402" alt="Character 1"></div>
@@ -329,13 +331,13 @@ SKINNS is 🔥. Now let's nail the pitch.
             <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1-thinking.png" width="204" height="402" alt="Character 1"></div>
             <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">This is your last chance...Impress her!</div>
-            <div class="choice-row"><button class="choice" data-choice="0">
-                    <div class="selected_mock"><figure class="mock"><img src="images/mock-laptop.png" width="130" height="130" alt="Show website"><figcaption>Show website</figcaption></figure></div>
+            <div class="choice-row"><div class="choice-option"><button class="choice" data-choice="0">
+                    <div class="selected_mock"><figure class="mock"><img src="images/mock-laptop.png" width="130" height="130" alt="Show website"></figure></div>
                     <div><img class="coin" src="images/coin.png" alt=""><span data-money="40">40</span></div>
-                </button><button class="choice" data-choice="1">
-                    <div class="selected_mock"><figure class="mock"><img src="images/mock-brochure.png" width="130" height="130" alt="Send Whatsapp brochure"><figcaption>Send Whatsapp brochure</figcaption></figure></div>
+                </button><div class="choice-caption">Show website</div></div><div class="choice-option"><button class="choice" data-choice="1">
+                    <div class="selected_mock"><figure class="mock"><img src="images/mock-brochure.png" width="130" height="130" alt="Send Whatsapp brochure"></figure></div>
                     <div><img class="coin" src="images/coin.png" alt=""><span data-money="30">30</span></div>
-                </button></div><button class="go" data-action="websiteChoice">Next</button>
+                </button><div class="choice-caption">Send Whatsapp brochure</div></div></div><button class="go" data-action="websiteChoice">Next</button>
         </template>
         <template data-screen="24">
             <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1-thinking.png" width="204" height="402" alt="Character 1"></div>

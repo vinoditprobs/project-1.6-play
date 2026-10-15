@@ -762,6 +762,25 @@ input {
     margin-top: 18px
 }
 
+.choice-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.choice-option .choice {
+    width: 100%;
+}
+
+.choice-caption {
+    margin-top: 8px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+}
+
 .choice, .screen-content > .selected_mock {
     cursor: pointer;
     color: #000000;
