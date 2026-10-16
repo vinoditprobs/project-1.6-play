@@ -1444,6 +1444,64 @@ figure.mock {
         right: 13%;
         top: 12%
     }
+    .game{
+        overflow-y: auto !important;
+    }
+    .game .ui{ position: relative; transform: none !important; inset: auto !important; 
+    margin:20px auto 230px;
+    }
+
+    .character-group{
+        position: fixed !important;
+        top: inherit !important;
+        bottom: 0 !important;
+        left: 0;
+        width: 100%;
+        height: auto;
+        z-index: 999;
+        
+    }
+     .character-group .char_wrapp{
+        position: relative;
+        padding-top: 30px;
+        
+    }
+    .character-group .char_wrapp.right_char{
+        padding-top: 10px;
+    }
+    .character-group .char_wrapp .bubble {
+        position: static;
+        width:calc(100% - 100px);
+        height: 75px;
+        background: #fff;
+        border-radius: 20px;
+        max-width: inherit;
+        padding: 10px 10px 10px 50px;
+        min-height: auto;
+        text-align: left;
+        margin-left: 30px;
+        font-size: 14px;
+        text-align: left;
+    }
+    .character-group .char_wrapp .bubble.right{
+        margin-left: 60px;
+        padding: 10px 50px 10px 10px;
+        text-align: right;
+    }
+    .character-group .char_wrapp .char {
+        position: absolute;
+        height: 140px !important;
+        width: auto !important;
+        left: -30px !important;
+        transform: none !important;
+        bottom: -1px !important;
+        border-bottom: 2px solid #fff;
+    }
+    .character-group .char_wrapp .char.right{
+       left: inherit !important; 
+       right: -30px !important;
+    }
+
 }
 
 @media(max-width:720px) {
