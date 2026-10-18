@@ -509,11 +509,12 @@ input {
     left: 50%;
     top: 0;
     bottom: 0;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(0) scale(1);
     width: min(580px, 48vw);
     z-index: 5;
     display: flex;
-    flex-direction: column
+    flex-direction: column;
+    transform-origin: center top;
 }
 
 .ui.lift-panel-enter {
@@ -523,7 +524,7 @@ input {
 @keyframes lift-panel-enter {
     from {
         opacity: 0;
-        transform: translateX(-50%) translateY(18px) scale(.98)
+        transform: translateX(-50%) translateY(0) scale(.95)
     }
 
     to {
