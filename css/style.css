@@ -766,6 +766,7 @@ input {
     cursor: pointer;
     box-shadow: 0 4px 0 #386b0d;
     background: #6ACB1D;
+    margin-bottom: 4px;
     background: linear-gradient(0deg,rgba(106, 203, 29, 1) 0%, rgba(164, 239, 56, 1) 50%, rgba(106, 203, 29, 1) 100%);
 }
 
@@ -1485,7 +1486,7 @@ figure.mock {
     .character-group{
         position: fixed !important;
         top: inherit !important;
-        bottom: 0 !important;
+        bottom: 5px !important;
         left: 0;
         width: 100%;
         height: auto;
