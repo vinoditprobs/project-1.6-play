@@ -1569,11 +1569,12 @@ figure.mock {
     }
 
     .bubble.ending-bubble {
-        width: min(250px, 72vw);
+        width: min(320px, 90vw);
         max-width: none;
-        min-height: 150px;
-        padding: 30px 26px 48px;
-        font-size: 12px
+        min-height: 210px;
+        padding: 36px 30px 62px;
+        font-size: 12px;
+        overflow: visible
     }
 
     .choice-row {
