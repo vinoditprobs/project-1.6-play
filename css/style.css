@@ -1526,17 +1526,23 @@ figure.mock {
     }
     .character-group .char_wrapp .char {
         position: absolute;
-        height: 140px !important;
-        width: auto !important;
-        max-width: 140px !important;
-        left: -30px !important;
+        height: clamp(70px, 22vw, 140px) !important;
+        width: clamp(70px, 22vw, 140px) !important;
+        max-width: clamp(70px, 22vw, 140px) !important;
+        right: inherit  !important;
+        left: -15px !important;
         transform: none !important;
+        top:inherit !important;
         bottom: -1px !important;
         border-bottom: 2px solid #fff;
     }
     .character-group .char_wrapp .char.right{
        left: inherit !important; 
-       right: -30px !important;
+       right: -15px !important;
+    }
+    .character-group .char_wrapp .char img {
+        object-fit: contain;
+        object-position: bottom;
     }
 
 }
