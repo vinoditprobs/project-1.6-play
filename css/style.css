@@ -832,7 +832,8 @@ input {
 }
 
 .choice.selected {
-    filter: drop-shadow(0 0 4px rgba(139, 234, 16, .85));
+    background-image: url("../images/mock-bg-selected.svg");
+    filter: drop-shadow(0 0 10px rgba(164, 239, 56, .95));
 }
 
 .choice.wrong {
