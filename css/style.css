@@ -48,6 +48,13 @@ input {
     background: #083545
 }
 
+@media (min-width: 951px) {
+    .game {
+        min-height: 0;
+        overflow: hidden
+    }
+}
+
 /* keep full-screen layers pinned while .game scrolls */
 #scene > .lobby,
 #scene > .inside,
