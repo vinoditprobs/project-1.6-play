@@ -30,17 +30,6 @@ function doPost(e) {
       sheet.appendRow(['Name', 'Email', 'Phone', 'Timestamp']);
     }
 
-    const lastRow = sheet.getLastRow();
-    if (lastRow > 1) {
-      const emails = sheet.getRange(2, 2, lastRow - 1, 1).getValues();
-      const duplicate = emails.some(row =>
-        String(row[0]).trim().toLowerCase() === email.toLowerCase()
-      );
-      if (duplicate) {
-        return textResponse('Lead Already Exists');
-      }
-    }
-
     sheet.appendRow([
       safeCellText(name),
       safeCellText(email),
