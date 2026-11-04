@@ -262,9 +262,9 @@ SKINNS is 🔥. Now let's nail the pitch.
             <div class="char right" data-scene-character="riya" data-expression="neutral"><img src="images/character-2-good-look.png" width="220" height="360" alt="Character 2"></div>
             <div class="title">Uh-oh...You don't have coins.</div>
             <div class="copy">Quickly fill in your details to claim 100 coins.</div>
-            <div class="fieldset"><label>Name<input id="name" value=""></label><label>E-mail ID<input id="email"
-                        value=""></label><label>Phone number<input id="phone" value=""></label>
-                <div class="error" id="formError"></div>
+            <div class="fieldset"><label>Name<input id="name" name="name" autocomplete="name" required></label><label>E-mail ID<input id="email"
+                        name="email" type="email" autocomplete="email" required></label><label>Phone number<input id="phone" name="phoneNumber" type="tel" autocomplete="tel" required></label>
+                <div class="error" id="formError" role="status" aria-live="polite"></div>
             </div><button class="go" data-action="claim">Submit</button>
         </template><template data-screen="16">
             <div class="char left asset-char" data-scene-character="founder" data-expression="neutral"><img src="images/character-1-happy.png" width="204" height="402" alt="Character 1"></div>
@@ -388,6 +388,7 @@ SKINNS is 🔥. Now let's nail the pitch.
         </template>
     </div>
     <script src="js/script.js"></script>
+    <script src="js/playLeads.js"></script>
 </body>
 
 </html>

@@ -47,3 +47,41 @@ Files Description:
 4. images/
    - SVG assets for characters and backgrounds
    - Note: Move SVG files here from root if needed
+
+
+
+
+
+
+playLeads.gs
+function doPost(e) {
+  try {
+    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('playLeads');
+    const name = e.parameter.name;
+    const email = e.parameter.email;
+    const phone = e.parameter.phoneNumber;
+    const timestamp = new Date();
+
+    if (!name || !email || !phone) {
+      return ContentService.createTextOutput("Name and Email are required")
+        .setMimeType(ContentService.MimeType.TEXT);
+    }
+
+    // Check duplicate by email (Column B)
+    const data = sheet.getRange(1, 2, sheet.getLastRow(), 1).getValues().flat();
+    if (data.includes(email)) {
+      return ContentService.createTextOutput("Lead Already Exists")
+        .setMimeType(ContentService.MimeType.TEXT);
+    }
+
+    // Append row [Name, Email, Phone, Timestamp]
+    sheet.appendRow([name, email, phone, timestamp]);
+
+    return ContentService.createTextOutput("Success")
+      .setMimeType(ContentService.MimeType.TEXT);
+
+  } catch (err) {
+    return ContentService.createTextOutput("Error: " + err.message)
+      .setMimeType(ContentService.MimeType.TEXT);
+  }
+}

@@ -140,7 +140,6 @@ function pick(i){S.choice=i;$('screen').querySelectorAll('.choice[data-choice]')
 function quizUSP(){if(S.choice===null)return;if(S.choice===1){S.screen=9;render()}else{S.screen=8;render()}}
 function itemChoice(){if(S.choice===null)return;if(S.choice===1){S.screen=12;render()}else{S.screen=13;render()}}
 function buyPack(){if(S.coins<20){S.screen=15;render()}else{S.coins-=20;S.screen=17;render()}}
-function claim(){const n=$('name').value.trim(),e=$('email').value.trim(),p=$('phone').value.trim(),err=$('formError');if(!n||!e||!p||!e.includes('@')||p.replace(/\D/g,'').length<10){err.textContent='Please enter a valid name, email and 10-digit phone number.';return}S.coins=100;S.screen=16;render()}
 function brandChoice(){if(S.choice===null)return;if(S.choice===0){S.screen=21;render()}else{S.coins=Math.max(0,S.coins-30);S.screen=21;render()}}
 function websiteChoice(){if(S.choice===null)return;if(S.choice===1){S.screen=24;render()}else{S.coins=Math.max(0,S.coins-40);S.screen=26;render()}}
 function startGameAudio(){
