@@ -1,4 +1,4 @@
-const GOOGLE_SHEETS_WEB_APP_URL='https://script.google.com/macros/s/AKfycbytD__3RVtIrjYmtfG4-4fgLO-Qoj4-4Ks8_olxDXRyVOorsFqOtdK71C_MbX9V4tzf9A/exec'; // Set this to the deployed Apps Script web app URL.
+const GOOGLE_SHEETS_WEB_APP_URL='https://script.google.com/macros/s/AKfycbyU-cuqn3wotGU31xDri-0W0QGKn06b_X-6Vf4W0FG3PF8MFVTBqck9xBrnpA7ox6u7VQ/exec'; // Set this to the deployed Apps Script web app URL.
 
 async function claim(){
   const name=$('name').value.trim();
