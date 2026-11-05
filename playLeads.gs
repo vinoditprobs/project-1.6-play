@@ -1,57 +1,60 @@
 function doPost(e) {
-  const lock = LockService.getScriptLock();
-
   try {
-    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('playLeads');
+    console.log('PlayLeads POST received');
+
+    const spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+    const sheet = spreadsheet.getSheetByName('PlayLeads');
+
     if (!sheet) {
-      throw new Error('The playLeads tab was not found.');
+      throw new Error('PlayLeads sheet not found');
     }
 
-    const parameters = e && e.parameter ? e.parameter : {};
-    const name = String(parameters.name || '').trim();
-    const email = String(parameters.email || '').trim();
-    const phone = String(parameters.phoneNumber || '').trim();
+    if (!e || !e.parameter) {
+      throw new Error('POST parameters missing');
+    }
+
+    const name = String(e.parameter.name || '').trim();
+    const email = String(e.parameter.email || '').trim();
+    const phone = String(e.parameter.phoneNumber || '').trim();
+
+    console.log(JSON.stringify({ name, email, phone }));
 
     if (!name || !email || !phone) {
-      return textResponse('Name, email, and phone are required.');
+      throw new Error('All fields are required');
     }
+
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      return textResponse('A valid email address is required.');
+      throw new Error('Invalid email');
     }
+
     if (phone.replace(/\D/g, '').length < 10) {
-      return textResponse('A valid phone number is required.');
+      throw new Error('Invalid phone number');
     }
 
-    if (!lock.tryLock(10000)) {
-      throw new Error('Could not lock the sheet. Please try again.');
-    }
+    const nextRow = Math.max(sheet.getLastRow() + 1, 2);
 
-    if (sheet.getLastRow() === 0) {
-      sheet.appendRow(['Name', 'Email', 'Phone', 'Timestamp']);
-    }
-
-    sheet.appendRow([
+    sheet.getRange(nextRow, 1, 1, 4).setValues([[
       safeCellText(name),
       safeCellText(email),
       safeCellText(phone),
       new Date()
-    ]);
-    return textResponse('Success');
+    ]]);
+
+    SpreadsheetApp.flush();
+
+    console.log('Lead saved successfully at row ' + nextRow);
+
+    return ContentService.createTextOutput('Success');
+
   } catch (error) {
-    console.error(error);
-    return textResponse('Error: ' + error.message);
-  } finally {
-    if (lock.hasLock()) {
-      lock.releaseLock();
-    }
+    console.error('PlayLeads error: ' + error.message);
+
+    return ContentService.createTextOutput(
+      'Error: ' + error.message
+    );
   }
 }
 
 function safeCellText(value) {
   return /^[=+\-@\t\r]/.test(value) ? "'" + value : value;
-}
-
-function textResponse(message) {
-  return ContentService.createTextOutput(message)
-    .setMimeType(ContentService.MimeType.TEXT);
 }
