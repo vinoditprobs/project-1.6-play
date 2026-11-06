@@ -89,6 +89,37 @@ input {
     line-height: 1;
 }
 
+.home-link {
+    position: fixed;
+    top: 18px;
+    left: 18px;
+    z-index: 10000;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 0 16px;
+    border: 2px solid rgba(245, 233, 200, .75);
+    border-radius: 24px;
+    background: rgba(6, 40, 58, .88);
+    color: var(--cream);
+    box-shadow: 0 4px 0 rgba(0, 0, 0, .2);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.home-link:hover,
+.home-link:focus-visible {
+    background: var(--teal);
+    transform: translateY(-1px);
+}
+
+.home-link:focus-visible {
+    outline: 3px solid var(--lime);
+    outline-offset: 3px;
+}
+
 .sound-toggle:hover,
 .sound-toggle:focus-visible {
     background: var(--teal);
