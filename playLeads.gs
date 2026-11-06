@@ -58,3 +58,24 @@ function doPost(e) {
 function safeCellText(value) {
   return /^[=+\-@\t\r]/.test(value) ? "'" + value : value;
 }
+
+
+
+
+function testDirectWrite() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet()
+    .getSheetByName('PlayLeads');
+
+  sheet.getRange('A4:D4').setValues([[
+    'Vinod Test',
+    'vinod@example.com',
+    '9876543210',
+    new Date()
+  ]]);
+
+  SpreadsheetApp.flush();
+
+  Logger.log(
+    JSON.stringify(sheet.getRange('A4:D4').getDisplayValues())
+  );
+}
